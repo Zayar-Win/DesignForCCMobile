@@ -88,8 +88,9 @@ const CourseHorizontalCard = ({
             marginTop: 12,
           }}
         >
-          {tags?.map((tag) => (
+          {tags?.map((tag, i) => (
             <Tag
+              key={i}
               text={tag.name}
               backgroundColor={
                 tag.backgroundColor

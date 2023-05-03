@@ -12,6 +12,7 @@ import CourseHorizontalCard from "../components/CourseHorizontalCard";
 import FilterTag from "../components/FilterTag";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
+import { latestCourses as courses } from "./Home";
 
 const Courses = () => {
   return (
@@ -103,6 +104,7 @@ const Courses = () => {
           "Python",
           "Node",
         ]}
+        keyExtractor={(_, i) => `tag-${i}`}
         renderItem={({ item, index }) => {
           return (
             <FilterTag
@@ -120,22 +122,14 @@ const Courses = () => {
         }}
       />
       <View style={{ marginTop: 24 }}>
-        {[1, 2, 3, 4, 5].map((item, i) => (
+        {courses?.map((course, i) => (
           <CourseHorizontalCard
-            fee={"30,000"}
-            image={require("../assets/hero.png")}
-            tags={[
-              {
-                name: "PHP",
-                backgroundColor: "#6A1ADD",
-              },
-              {
-                name: "Laravel",
-                backgroundColor: "#EC272E",
-              },
-            ]}
-            lessonCount={13}
-            chapterCount={5}
+            key={i}
+            fee={course.fees}
+            image={course.image}
+            tags={course.tags}
+            lessonCount={course.lessonCount}
+            chapterCount={course.chapterCount}
           />
         ))}
       </View>

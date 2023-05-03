@@ -22,7 +22,7 @@ import { Platform } from "react-native";
 import { UIManager } from "react-native";
 import { LayoutAnimation } from "react-native";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   const [isSlideDownOpen, setIsSlideDownOpen] =
     useState(false);
 
@@ -250,30 +250,36 @@ const Profile = () => {
         </View>
       </View>
       <View>
-        <View
-          style={{
-            borderTopColor: "#EBEBEB",
-            borderTopWidth: 1,
-            padding: 20,
-            flexDirection: "row",
-            alignItems: "center",
-          }}
+        <Pressable
+          onPress={() =>
+            navigation.navigate("MyCourses")
+          }
         >
-          <SimpleLineIcons
-            name='chart'
-            size={20}
-          />
-          <Text
+          <View
             style={{
-              fontWeight: 500,
-              fontSize: 16,
-              lineHeight: 19,
-              paddingLeft: 14,
+              borderTopColor: "#EBEBEB",
+              borderTopWidth: 1,
+              padding: 20,
+              flexDirection: "row",
+              alignItems: "center",
             }}
           >
-            My Learning Progress
-          </Text>
-        </View>
+            <SimpleLineIcons
+              name='chart'
+              size={20}
+            />
+            <Text
+              style={{
+                fontWeight: 500,
+                fontSize: 16,
+                lineHeight: 19,
+                paddingLeft: 14,
+              }}
+            >
+              My Learning Progress
+            </Text>
+          </View>
+        </Pressable>
         <View
           style={{
             borderTopColor: "#EBEBEB",
@@ -366,48 +372,51 @@ const Profile = () => {
             marginBottom: 32,
           }}
         >
-          <View
-            style={{
-              borderTopColor: "#EBEBEB",
-              borderTopWidth: 1,
-              padding: 20,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
+          <Pressable
+            onPress={handleSlideDownOpen}
           >
             <View
               style={{
+                borderTopColor: "#EBEBEB",
+                borderTopWidth: 1,
+                padding: 20,
                 flexDirection: "row",
                 alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
-              <AntDesign
-                name='setting'
-                size={20}
-              />
-              <Text
+              <View
                 style={{
-                  fontWeight: 500,
-                  fontSize: 16,
-                  lineHeight: 19,
-                  paddingLeft: 14,
+                  flexDirection: "row",
+                  alignItems: "center",
                 }}
               >
-                Account Setting
-              </Text>
+                <AntDesign
+                  name='setting'
+                  size={20}
+                />
+                <Text
+                  style={{
+                    fontWeight: 500,
+                    fontSize: 16,
+                    lineHeight: 19,
+                    paddingLeft: 14,
+                  }}
+                >
+                  Account Setting
+                </Text>
+              </View>
+              <Feather
+                name={
+                  isSlideDownOpen
+                    ? "chevron-up"
+                    : "chevron-down"
+                }
+                size={18}
+                color='#BCBCBC'
+              />
             </View>
-            <Feather
-              name={
-                isSlideDownOpen
-                  ? "chevron-up"
-                  : "chevron-down"
-              }
-              size={18}
-              onPress={handleSlideDownOpen}
-              color='#BCBCBC'
-            />
-          </View>
+          </Pressable>
           {isSlideDownOpen ? (
             <View>
               <Animated.View

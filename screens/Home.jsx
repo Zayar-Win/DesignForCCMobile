@@ -11,8 +11,9 @@ import { Pressable } from "react-native";
 import CourseCard from "../components/CourseCard";
 import { FlatList } from "react-native";
 import BlogCard from "../components/BlogCard";
+import CourseIllustration from "../assets/Illustration.svg";
 
-const latestCourses = [
+export const latestCourses = [
   {
     image: require("../assets/WebsiteDeployment.png"),
     title: "Website Deployment...",
@@ -117,74 +118,80 @@ const latestCourses = [
   },
 ];
 
-const latestBlogs = [
+export const latestBlogs = [
   {
-    image:require('../assets/AtomicDesign.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AtomicDesign.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
   {
-    image:require('../assets/AI.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AI.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
   {
-    image:require('../assets/AtomicDesign.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AtomicDesign.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
   {
-    image:require('../assets/AI.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AI.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
   {
-    image:require('../assets/AtomicDesign.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AtomicDesign.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
   {
-    image:require('../assets/AI.png'),
-    title:'Designer တိုင်းသိသင့််တဲ့ Atom...',
-    description:'Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...',
-    tags:[
+    image: require("../assets/AI.png"),
+    title: "Designer တိုင်းသိသင့််တဲ့ Atom...",
+    description:
+      "Web Designer/ UI/UX Designer လုပ်ဖို့ ကြိုးစားနေ တဲ့သူတွေဖြစ်စေ ဒါမှမဟုတ် Design ပိုင်းကို တီးမိခေါက် မိ ရှိမိထားသင့်တဲ့ Web Developer ကြီးတို့ပဲဖြစ်စေ...",
+    tags: [
       {
         name: "Knowledge Sharing",
         backgroundColor: "#0092EF",
       },
-    ]
+    ],
   },
-]
+];
 
 export default function Home() {
   return (
@@ -228,7 +235,7 @@ export default function Home() {
                 paddingTop: 5,
                 fontSize: 12,
                 lineHeight: 15,
-                color: "##656565",
+                color: "#656565",
                 fontWeight: 400,
               }}
             >
@@ -261,7 +268,11 @@ export default function Home() {
           />
         </View>
       </View>
-      <View>
+      <View
+        style={{
+          marginTop: 20,
+        }}
+      >
         <Text
           style={{
             fontSize: 16,
@@ -312,6 +323,14 @@ export default function Home() {
                 View all Courses we Offer
               </Text>
             </LinearGradient>
+            <CourseIllustration
+              style={{
+                position: "absolute",
+                width: 158,
+                right: 31,
+                top: -66,
+              }}
+            />
           </View>
           <View style={{ width: "48%" }}>
             <LinearGradient
@@ -418,17 +437,17 @@ export default function Home() {
           decelerationRate='fast'
           snapToAlignment='start'
           snapToInterval={180}
-          data={[1, 2, 3, 4, 5, 6, 7]}
+          data={latestCourses}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item, index }) => {
             return (
               <CourseCard
-                title={"Website Developent..."}
-                fee={"30,000"}
-                image={require("../assets/hero.png")}
-                tags={[]}
-                lessonCount={13}
-                chapterCount={5}
+                title={item.title}
+                fee={item.fees}
+                image={item.image}
+                tags={item.tags}
+                lessonCount={item.lessonCount}
+                chapterCount={item.chapterCount}
               />
             );
           }}
@@ -463,19 +482,15 @@ export default function Home() {
           decelerationRate='fast'
           snapToAlignment='start'
           snapToInterval={202}
-          data={[1, 2, 3, 4, 5, 6, 7]}
+          data={latestBlogs}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item, index }) => {
             return (
               <BlogCard
-                title={
-                  
-                }
-                description={
-                  
-                }
-                image={require("../assets/hero.png")}
-                tags={}
+                title={item.title}
+                description={item.description}
+                image={item.image}
+                tags={item.tags}
                 created_at={
                   "Apr 10, 2023 7:21 AM"
                 }

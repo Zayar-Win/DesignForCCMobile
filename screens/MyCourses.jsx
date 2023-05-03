@@ -158,9 +158,10 @@ const MyCourses = () => {
           marginVertical: 16,
         }}
       >
-        {myCourses?.map((course) => (
+        {myCourses?.map((course, i) => (
           <CourseProgressCard
-            precentage={course.percentage}
+            key={i}
+            percentage={course.percentage}
             title={course.title}
             chapterCount={course.chapterCount}
             lessonCount={course.lessonCount}

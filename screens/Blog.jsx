@@ -12,6 +12,7 @@ import FilterTag from "../components/FilterTag";
 import CourseHorizontalCard from "../components/CourseHorizontalCard";
 import Pagination from "../components/Pagination";
 import BlogHorizontalCard from "../components/BlogHorizontalCard";
+import { latestBlogs as blogs } from "./Home";
 
 const Blog = () => {
   return (
@@ -113,18 +114,12 @@ const Blog = () => {
         }}
       />
       <View style={{ marginTop: 24 }}>
-        {[1, 2, 3, 4, 5].map((item, i) => (
+        {blogs.map((blog, i) => (
           <BlogHorizontalCard
-            image={require("../assets/hero.png")}
-            tags={[
-              {
-                name: "Knowledge Sharing",
-                backgroundColor: "#0092EF",
-              },
-            ]}
-            title={
-              "AI လေ့လာလိုသူများအတွက် Resources များ"
-            }
+            key={i}
+            image={blog.image}
+            tags={blog.tags}
+            title={blog.title}
           />
         ))}
       </View>

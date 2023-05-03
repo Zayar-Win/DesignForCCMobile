@@ -32,10 +32,29 @@ import MyCourses from "./screens/MyCourses";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+const ProfileStack = createStackNavigator();
+
+function ProfileStackScreen() {
+  return (
+    <ProfileStack.Navigator initialRouteName='StackProfile'>
+      <ProfileStack.Screen
+        options={{ headerShown: false }}
+        name='StackProfile'
+        component={Profile}
+      />
+      <ProfileStack.Screen
+        name='MyCourses'
+        component={MyCourses}
+      />
+    </ProfileStack.Navigator>
+  );
+}
 
 export default function App() {
   const [data, setData] = useState([]);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    name: "zayarwin",
+  });
   const [isLoading, setIsLoading] =
     useState(false);
   const fetchData = async () => {
@@ -139,7 +158,7 @@ export default function App() {
               />
               <Tab.Screen
                 name='Profile'
-                component={Profile}
+                component={ProfileStackScreen}
                 options={{
                   tabBarIcon: ({
                     color,
