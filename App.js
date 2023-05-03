@@ -29,6 +29,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Profile from "./screens/Profile";
 import MyCourses from "./screens/MyCourses";
+import { Pressable } from "react-native";
+import Left from "./assets/Left.svg";
+import CertificateBlack from "./assets/CertificateBlack.svg";
+import Header from "./components/Header";
+import MyCertificates from "./screens/MyCertificates";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -45,6 +50,36 @@ function ProfileStackScreen() {
       <ProfileStack.Screen
         name='MyCourses'
         component={MyCourses}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"Learning Progress"}
+            >
+              <CertificateBlack
+                width={35}
+                height={30}
+              />
+            </Header>
+          ),
+        }}
+      />
+      <ProfileStack.Screen
+        name='MyCertificates'
+        component={MyCertificates}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"My Certificates"}
+            >
+              <CertificateBlack
+                width={35}
+                height={30}
+              />
+            </Header>
+          ),
+        }}
       />
     </ProfileStack.Navigator>
   );
@@ -160,6 +195,7 @@ export default function App() {
                 name='Profile'
                 component={ProfileStackScreen}
                 options={{
+                  headerShown: false,
                   tabBarIcon: ({
                     color,
                     size,
@@ -174,14 +210,7 @@ export default function App() {
               />
             </Tab.Navigator>
           ) : (
-            <Stack.Navigator initialRouteName='MyCourses'>
-              <Stack.Screen
-                name='Intro'
-                component={Intro}
-                options={{
-                  headerShown: false,
-                }}
-              />
+            <Stack.Navigator initialRouteName='Login'>
               <Stack.Screen
                 name='Login'
                 component={LoginScreen}

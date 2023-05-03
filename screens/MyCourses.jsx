@@ -9,6 +9,9 @@ import SearchBar from "../components/SearchBar";
 import { ScrollView } from "react-native";
 import CourseProgressCard from "../components/CourseProgressCard";
 import { Animated } from "react-native";
+import CertificateBlack from "../assets/CertificateBlack.svg";
+import Left from "../assets/Left.svg";
+import { useNavigation } from "@react-navigation/native";
 
 const myCourses = [
   {
@@ -35,13 +38,13 @@ const myCourses = [
 ];
 
 const MyCourses = () => {
+  const navigation = useNavigation();
   const [filter, setFilter] = useState("All");
   const tabAnimation = useRef(
     new Animated.Value(0)
   ).current;
 
   const changeFilter = (e, type, position) => {
-    console.log(e.nativeEvent);
     setFilter(type);
     translateX = e.nativeEvent.pageX;
     Animated.timing(tabAnimation, {

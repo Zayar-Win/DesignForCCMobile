@@ -210,44 +210,50 @@ const Profile = ({ navigation }) => {
             Completed
           </Text>
         </View>
-        <View
-          style={{
-            flexGrow: 1,
-            paddingHorizontal: 24,
-            paddingVertical: 16,
-            borderColor: "#EBEBEB",
-            borderRadius: 10,
-            borderWidth: 1,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+        <Pressable
+          onPress={() =>
+            navigation.navigate("MyCertificates")
+          }
         >
-          <MaterialCommunityIcons
-            name='certificate'
-            size={32}
-            color='#0092EF'
-          />
-          <Text
+          <View
             style={{
-              fontSize: 12,
-              fontWeight: 500,
-              lineHeight: 15,
-              color: "#232425",
+              flexGrow: 1,
+              paddingHorizontal: 24,
+              paddingVertical: 16,
+              borderColor: "#EBEBEB",
+              borderRadius: 10,
+              borderWidth: 1,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            View
-          </Text>
-          <Text
-            style={{
-              fontSize: 12,
-              fontWeight: 500,
-              lineHeight: 15,
-              color: "#232425",
-            }}
-          >
-            Certificates
-          </Text>
-        </View>
+            <MaterialCommunityIcons
+              name='certificate'
+              size={32}
+              color='#0092EF'
+            />
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                lineHeight: 15,
+                color: "#232425",
+              }}
+            >
+              View
+            </Text>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                lineHeight: 15,
+                color: "#232425",
+              }}
+            >
+              Certificates
+            </Text>
+          </View>
+        </Pressable>
       </View>
       <View>
         <Pressable
