@@ -474,32 +474,40 @@ const Profile = ({ navigation }) => {
                     </Text>
                   </View>
                 </Pressable>
-                <View
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingLeft: 45,
-                    paddingVertical: 20,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    borderTopColor: "#EBEBEB",
-                    borderTopWidth: 1,
-                  }}
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate(
+                      "SocialProfiles"
+                    )
+                  }
                 >
-                  <FontAwesome
-                    name='user-circle-o'
-                    size={18}
-                  />
-                  <Text
+                  <View
                     style={{
-                      fontSize: 16,
-                      lineHeight: 19,
-                      fontWeight: 500,
-                      paddingLeft: 14,
+                      backgroundColor: "#F5F5F5",
+                      paddingLeft: 45,
+                      paddingVertical: 20,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      borderTopColor: "#EBEBEB",
+                      borderTopWidth: 1,
                     }}
                   >
-                    Social Profile
-                  </Text>
-                </View>
+                    <FontAwesome
+                      name='user-circle-o'
+                      size={18}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        lineHeight: 19,
+                        fontWeight: 500,
+                        paddingLeft: 14,
+                      }}
+                    >
+                      Social Profile
+                    </Text>
+                  </View>
+                </Pressable>
                 <View
                   style={{
                     backgroundColor: "#F5F5F5",

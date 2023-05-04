@@ -36,6 +36,7 @@ import Header from "./components/Header";
 import MyCertificates from "./screens/MyCertificates";
 import MyActivities from "./screens/MyActivities";
 import EditProfileScreen from "./screens/EditProfileScreen";
+import SocialProfiles from "./screens/SocialProfiles";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -100,6 +101,20 @@ function ProfileStackScreen() {
       <ProfileStack.Screen
         name='EditProfile'
         component={EditProfileScreen}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"Edit Profile"}
+            >
+              <View></View>
+            </Header>
+          ),
+        }}
+      />
+      <ProfileStack.Screen
+        name='SocialProfiles'
+        component={SocialProfiles}
         options={{
           header: ({ navigation }) => (
             <Header
