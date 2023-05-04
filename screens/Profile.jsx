@@ -542,32 +542,40 @@ const Profile = ({ navigation }) => {
                     </Text>
                   </View>
                 </Pressable>
-                <View
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingLeft: 45,
-                    paddingVertical: 20,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    borderTopColor: "#EBEBEB",
-                    borderTopWidth: 1,
-                  }}
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate(
+                      "Invoices"
+                    )
+                  }
                 >
-                  <Ionicons
-                    name='newspaper-outline'
-                    size={18}
-                  />
-                  <Text
+                  <View
                     style={{
-                      fontSize: 16,
-                      lineHeight: 19,
-                      fontWeight: 500,
-                      paddingLeft: 14,
+                      backgroundColor: "#F5F5F5",
+                      paddingLeft: 45,
+                      paddingVertical: 20,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      borderTopColor: "#EBEBEB",
+                      borderTopWidth: 1,
                     }}
                   >
-                    Invoices
-                  </Text>
-                </View>
+                    <Ionicons
+                      name='newspaper-outline'
+                      size={18}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        lineHeight: 19,
+                        fontWeight: 500,
+                        paddingLeft: 14,
+                      }}
+                    >
+                      Invoices
+                    </Text>
+                  </View>
+                </Pressable>
                 <View
                   style={{
                     backgroundColor: "#F5F5F5",

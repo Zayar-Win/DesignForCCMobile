@@ -38,6 +38,7 @@ import MyActivities from "./screens/MyActivities";
 import EditProfileScreen from "./screens/EditProfileScreen";
 import SocialProfiles from "./screens/SocialProfiles";
 import ChangePassword from "./screens/ChangePassword";
+import Invoices from "./screens/Invoices";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -135,6 +136,20 @@ function ProfileStackScreen() {
             <Header
               navigation={navigation}
               headerTitle={"Password"}
+            >
+              <View></View>
+            </Header>
+          ),
+        }}
+      />
+      <ProfileStack.Screen
+        name='Invoices'
+        component={Invoices}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"Invoices"}
             >
               <View></View>
             </Header>
