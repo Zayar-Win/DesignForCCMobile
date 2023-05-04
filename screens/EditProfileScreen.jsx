@@ -10,6 +10,7 @@ import Cross from "../assets/Cross Icon.svg";
 import Camera from "../assets/Camera Icon.svg";
 import Button from "../components/Button";
 import { TextInput } from "react-native";
+import ProfileInputField from "../components/ProfileInputField";
 
 const EditProfileScreen = () => {
   return (
@@ -80,193 +81,32 @@ const EditProfileScreen = () => {
             width: "100%",
           }}
         >
-          <View
-            style={{
-              padding: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#EBEBEB",
-              flexDirection: "row",
-              alignItems: "center",
+          <ProfileInputField
+            label='Name'
+            value='Min Naing'
+          />
+          <ProfileInputField
+            label='Email'
+            value='minmin.minnaing22@gmail.com'
+          />
+          <ProfileInputField
+            label='Portfilio URL'
+            value='behance.net/minnaing7'
+          />
+          <ProfileInputField
+            label={"Job"}
+            value='Graphic & UiUx Designer'
+          />
+
+          <ProfileInputField
+            label={"Bio"}
+            multiline
+            wrapperStyle={{
+              alignItems: "flex-start",
             }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 600,
-                color: "#0092EF",
-                paddingRight: 16,
-              }}
-            >
-              Name :{" "}
-            </Text>
-            <View
-              style={{
-                flex: 1,
-              }}
-            >
-              <TextInput
-                value={"Min Naing"}
-                style={{
-                  fontSize: 16,
-                  color: "#232425",
-                  width: "100%",
-                }}
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              padding: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#EBEBEB",
-              flexDirection: "row",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 600,
-                color: "#0092EF",
-                paddingRight: 16,
-              }}
-            >
-              Email :{" "}
-            </Text>
-            <View
-              style={{
-                flex: 1,
-              }}
-            >
-              <TextInput
-                value={
-                  "minmin.minnaing22@gmail.com"
-                }
-                style={{
-                  fontSize: 16,
-                  color: "#232425",
-                  width: "100%",
-                }}
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              padding: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#EBEBEB",
-              flexDirection: "row",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 600,
-                color: "#0092EF",
-                paddingRight: 16,
-              }}
-            >
-              Portfilio Url :{" "}
-            </Text>
-            <View
-              style={{
-                flex: 1,
-              }}
-            >
-              <TextInput
-                value={"behance.net/minnaing7"}
-                style={{
-                  fontSize: 16,
-                  color: "#232425",
-                  width: "100%",
-                }}
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              padding: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#EBEBEB",
-              flexDirection: "row",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 600,
-                color: "#0092EF",
-                paddingRight: 16,
-              }}
-            >
-              Job :{" "}
-            </Text>
-            <View
-              style={{
-                flex: 1,
-              }}
-            >
-              <TextInput
-                value={"Graphic & UiUx Designer"}
-                style={{
-                  fontSize: 16,
-                  color: "#232425",
-                  width: "100%",
-                }}
-              />
-            </View>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              padding: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#EBEBEB",
-              flexDirection: "row",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 600,
-                color: "#0092EF",
-                paddingRight: 16,
-                paddingTop: 3,
-              }}
-            >
-              Bio :{" "}
-            </Text>
-            <View
-              style={{
-                flex: 1,
-              }}
-            >
-              <TextInput
-                value={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores rerum tenetur aut id labore consequuntur sed tempore commodi corrupti!"
-                }
-                multiline
-                style={{
-                  fontSize: 16,
-                  color: "#232425",
-                  width: "100%",
-                }}
-              />
-            </View>
-          </View>
+            labelStyle={{ paddingTop: 3 }}
+            value='Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores rerum tenetur aut id labore consequuntur sed tempore commodi corrupti!'
+          />
         </View>
         <View
           style={{

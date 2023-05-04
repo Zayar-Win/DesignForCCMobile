@@ -11,6 +11,7 @@ import { Image } from "react-native";
 import { ScrollView } from "react-native";
 import Button from "../components/Button";
 import { TextInput } from "react-native";
+import ProfileInputField from "../components/ProfileInputField";
 
 const SocialProfiles = () => {
   return (
@@ -43,117 +44,18 @@ const SocialProfiles = () => {
           width: "100%",
         }}
       >
-        <View
-          style={{
-            padding: 20,
-            borderBottomWidth: 1,
-            borderBottomColor: "#EBEBEB",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 600,
-              color: "#0092EF",
-              paddingRight: 16,
-            }}
-          >
-            Github URL :{" "}
-          </Text>
-          <View
-            style={{
-              flex: 1,
-            }}
-          >
-            <TextInput
-              value={"github.com/MinNaing7"}
-              style={{
-                fontSize: 16,
-                color: "#232425",
-                width: "100%",
-              }}
-            />
-          </View>
-        </View>
-        <View
-          style={{
-            padding: 20,
-            borderBottomWidth: 1,
-            borderBottomColor: "#EBEBEB",
-            flexDirection: "row",
-            flex: 1,
-            width: "100%",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 600,
-              color: "#0092EF",
-              paddingRight: 16,
-            }}
-          >
-            Fackbook URL :{" "}
-          </Text>
-          <View
-            style={{
-              flex: 1,
-            }}
-          >
-            <TextInput
-              value={"facebook.com/Min.Naing.7"}
-              style={{
-                fontSize: 16,
-                color: "#232425",
-                width: "100%",
-              }}
-            />
-          </View>
-        </View>
-        <View
-          style={{
-            padding: 20,
-            borderBottomWidth: 1,
-            borderBottomColor: "#EBEBEB",
-            flexDirection: "row",
-            flex: 1,
-            width: "100%",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 600,
-              color: "#0092EF",
-              paddingRight: 16,
-            }}
-          >
-            LinkedIn URL :{" "}
-          </Text>
-          <View
-            style={{
-              flex: 1,
-            }}
-          >
-            <TextInput
-              value={
-                "linkedin.com/in/min-naing-7"
-              }
-              style={{
-                fontSize: 16,
-                color: "#232425",
-                width: "100%",
-              }}
-            />
-          </View>
-        </View>
+        <ProfileInputField
+          value='github.com/MinNaing7'
+          label='Github URL'
+        />
+        <ProfileInputField
+          label='Facebook URL'
+          value='facebook.com/Min.Naing.7'
+        />
+        <ProfileInputField
+          label='LinkedIn URL'
+          value='linkedin.com/in/min-naing-7'
+        />
       </View>
       <View
         style={{

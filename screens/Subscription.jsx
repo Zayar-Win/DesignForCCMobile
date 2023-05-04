@@ -7,6 +7,7 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Button from "../components/Button";
+import ProfileInputField from "../components/ProfileInputField";
 
 const Subscription = () => {
   return (
@@ -18,45 +19,10 @@ const Subscription = () => {
           width: "100%",
         }}
       >
-        <View
-          style={{
-            height: 56,
-            paddingHorizontal: 20,
-            borderBottomWidth: 1,
-            borderBottomColor: "#EBEBEB",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 600,
-              color: "#0092EF",
-              paddingRight: 16,
-            }}
-          >
-            Email :{" "}
-          </Text>
-          <View
-            style={{
-              flex: 1,
-              width: "100%",
-              justifyContent: "center",
-            }}
-          >
-            <TextInput
-              value='minmin.minnaing22@gmail.com'
-              style={{
-                fontSize: 16,
-                color: "#232425",
-                width: "100%",
-                paddingVertical: 5,
-              }}
-            />
-          </View>
-        </View>
+        <ProfileInputField
+          label='Email'
+          value='minmin.minnaing22@gmail.com'
+        />
       </View>
       <Text
         style={{
