@@ -9,6 +9,7 @@ import { Image } from "react-native";
 import Cross from "../assets/Cross Icon.svg";
 import Camera from "../assets/Camera Icon.svg";
 import Button from "../components/Button";
+import { TextInput } from "react-native";
 
 const EditProfileScreen = () => {
   return (
@@ -104,16 +105,14 @@ const EditProfileScreen = () => {
                 flex: 1,
               }}
             >
-              <Text
+              <TextInput
+                value={"Min Naing"}
                 style={{
                   fontSize: 16,
-                  lineHeight: 19,
-                  fontWeight: 500,
                   color: "#232425",
+                  width: "100%",
                 }}
-              >
-                Min Naing
-              </Text>
+              />
             </View>
           </View>
           <View
@@ -143,16 +142,16 @@ const EditProfileScreen = () => {
                 flex: 1,
               }}
             >
-              <Text
+              <TextInput
+                value={
+                  "minmin.minnaing22@gmail.com"
+                }
                 style={{
                   fontSize: 16,
-                  lineHeight: 19,
-                  fontWeight: 500,
                   color: "#232425",
+                  width: "100%",
                 }}
-              >
-                minmin.minnaing22@gmail.com
-              </Text>
+              />
             </View>
           </View>
           <View
@@ -182,16 +181,14 @@ const EditProfileScreen = () => {
                 flex: 1,
               }}
             >
-              <Text
+              <TextInput
+                value={"behance.net/minnaing7"}
                 style={{
                   fontSize: 16,
-                  lineHeight: 19,
-                  fontWeight: 500,
                   color: "#232425",
+                  width: "100%",
                 }}
-              >
-                behance.net/minnaing7
-              </Text>
+              />
             </View>
           </View>
           <View
@@ -221,16 +218,14 @@ const EditProfileScreen = () => {
                 flex: 1,
               }}
             >
-              <Text
+              <TextInput
+                value={"Graphic & UiUx Designer"}
                 style={{
                   fontSize: 16,
-                  lineHeight: 19,
-                  fontWeight: 500,
                   color: "#232425",
+                  width: "100%",
                 }}
-              >
-                Graphic & UiUx Designer
-              </Text>
+              />
             </View>
           </View>
           <View
@@ -249,6 +244,7 @@ const EditProfileScreen = () => {
                 fontWeight: 600,
                 color: "#0092EF",
                 paddingRight: 16,
+                paddingTop: 3,
               }}
             >
               Bio :{" "}
@@ -258,23 +254,17 @@ const EditProfileScreen = () => {
                 flex: 1,
               }}
             >
-              <Text
+              <TextInput
+                value={
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores rerum tenetur aut id labore consequuntur sed tempore commodi corrupti!"
+                }
+                multiline
                 style={{
                   fontSize: 16,
-                  lineHeight: 19,
-                  fontWeight: 500,
                   color: "#232425",
+                  width: "100%",
                 }}
-              >
-                Lorem ipsum dolor sit amet
-                consectetur adipisicing elit.
-                Voluptatibus omnis iste assumenda
-                impedit possimus delectus
-                necessitatibus voluptatum ipsam at
-                culpa magni adipisci facere
-                quisquam dolorum deleniti, cum
-                quia nesciunt autem.
-              </Text>
+              />
             </View>
           </View>
         </View>

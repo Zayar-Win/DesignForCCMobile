@@ -9,6 +9,7 @@ import Button from "../components/Button";
 import { TextInput } from "react-native-gesture-handler";
 import EyeOpen from "../assets/Eye Not-Protected Icon.svg";
 import EyeClose from "../assets/Eye Protected Icon.svg";
+import { Pressable } from "react-native";
 
 const ChangePassword = () => {
   const [
@@ -62,7 +63,6 @@ const ChangePassword = () => {
               value={"password"}
               style={{
                 fontSize: 16,
-                lineHeight: 17,
                 color: "#232425",
                 width: "100%",
                 paddingVertical: 5,
@@ -134,13 +134,12 @@ const ChangePassword = () => {
               value={"password"}
               style={{
                 fontSize: 16,
-                lineHeight: 17,
                 color: "#232425",
                 width: "100%",
                 paddingVertical: 5,
               }}
             />
-            {isOldPasswordShow ? (
+            {isNewPasswordShow ? (
               <EyeOpen
                 width={25}
                 height={25}

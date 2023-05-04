@@ -45,7 +45,7 @@ const Switch = () => {
                   translateX:
                     switchAnimation.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [2, 22],
+                      outputRange: [2, 24],
                     }),
                 },
               ],

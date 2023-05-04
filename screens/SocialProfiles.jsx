@@ -10,6 +10,7 @@ import LinkedIn from "../assets/linkedin.svg";
 import { Image } from "react-native";
 import { ScrollView } from "react-native";
 import Button from "../components/Button";
+import { TextInput } from "react-native";
 
 const SocialProfiles = () => {
   return (
@@ -67,16 +68,14 @@ const SocialProfiles = () => {
               flex: 1,
             }}
           >
-            <Text
+            <TextInput
+              value={"github.com/MinNaing7"}
               style={{
                 fontSize: 16,
-                lineHeight: 19,
-                fontWeight: 500,
                 color: "#232425",
+                width: "100%",
               }}
-            >
-              github.com/MinNaing7
-            </Text>
+            />
           </View>
         </View>
         <View
@@ -106,16 +105,14 @@ const SocialProfiles = () => {
               flex: 1,
             }}
           >
-            <Text
+            <TextInput
+              value={"facebook.com/Min.Naing.7"}
               style={{
                 fontSize: 16,
-                lineHeight: 19,
-                fontWeight: 500,
                 color: "#232425",
+                width: "100%",
               }}
-            >
-              facebook.com/Min.Naing.7
-            </Text>
+            />
           </View>
         </View>
         <View
@@ -145,16 +142,16 @@ const SocialProfiles = () => {
               flex: 1,
             }}
           >
-            <Text
+            <TextInput
+              value={
+                "linkedin.com/in/min-naing-7"
+              }
               style={{
                 fontSize: 16,
-                lineHeight: 19,
-                fontWeight: 500,
                 color: "#232425",
+                width: "100%",
               }}
-            >
-              linkedin.com/in/min-naing-7
-            </Text>
+            />
           </View>
         </View>
       </View>

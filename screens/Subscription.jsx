@@ -39,17 +39,23 @@ const Subscription = () => {
           >
             Email :{" "}
           </Text>
-
-          <TextInput
-            value='minmin.minnaing22@gmail.com'
+          <View
             style={{
-              fontSize: 16,
-              lineHeight: 17,
-              color: "#232425",
+              flex: 1,
               width: "100%",
-              paddingVertical: 5,
+              justifyContent: "center",
             }}
-          />
+          >
+            <TextInput
+              value='minmin.minnaing22@gmail.com'
+              style={{
+                fontSize: 16,
+                color: "#232425",
+                width: "100%",
+                paddingVertical: 5,
+              }}
+            />
+          </View>
         </View>
       </View>
       <Text
