@@ -34,6 +34,8 @@ import Left from "./assets/Left.svg";
 import CertificateBlack from "./assets/CertificateBlack.svg";
 import Header from "./components/Header";
 import MyCertificates from "./screens/MyCertificates";
+import MyActivities from "./screens/MyActivities";
+import EditProfileScreen from "./screens/EditProfileScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -77,6 +79,34 @@ function ProfileStackScreen() {
                 width={35}
                 height={30}
               />
+            </Header>
+          ),
+        }}
+      />
+      <ProfileStack.Screen
+        name='MyActivities'
+        component={MyActivities}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"My Activites"}
+            >
+              <View></View>
+            </Header>
+          ),
+        }}
+      />
+      <ProfileStack.Screen
+        name='EditProfile'
+        component={EditProfileScreen}
+        options={{
+          header: ({ navigation }) => (
+            <Header
+              navigation={navigation}
+              headerTitle={"Edit Profile"}
+            >
+              <View></View>
             </Header>
           ),
         }}

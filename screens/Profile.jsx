@@ -286,27 +286,33 @@ const Profile = ({ navigation }) => {
             </Text>
           </View>
         </Pressable>
-        <View
-          style={{
-            borderTopColor: "#EBEBEB",
-            borderTopWidth: 1,
-            padding: 20,
-            flexDirection: "row",
-            alignItems: "center",
-          }}
+        <Pressable
+          onPress={() =>
+            navigation.navigate("MyActivities")
+          }
         >
-          <AntDesign name='bars' size={20} />
-          <Text
+          <View
             style={{
-              fontWeight: 500,
-              fontSize: 16,
-              lineHeight: 19,
-              paddingLeft: 14,
+              borderTopColor: "#EBEBEB",
+              borderTopWidth: 1,
+              padding: 20,
+              flexDirection: "row",
+              alignItems: "center",
             }}
           >
-            My Activities
-          </Text>
-        </View>
+            <AntDesign name='bars' size={20} />
+            <Text
+              style={{
+                fontWeight: 500,
+                fontSize: 16,
+                lineHeight: 19,
+                paddingLeft: 14,
+              }}
+            >
+              My Activities
+            </Text>
+          </View>
+        </Pressable>
         <View
           style={{
             borderTopColor: "#EBEBEB",
@@ -436,30 +442,38 @@ const Profile = ({ navigation }) => {
                   overflow: "hidden",
                 }}
               >
-                <View
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingLeft: 45,
-                    paddingVertical: 20,
-                    flexDirection: "row",
-                    alignItems: "center",
-                  }}
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate(
+                      "EditProfile"
+                    )
+                  }
                 >
-                  <MaterialCommunityIcons
-                    name='pencil-outline'
-                    size={18}
-                  />
-                  <Text
+                  <View
                     style={{
-                      fontSize: 16,
-                      lineHeight: 19,
-                      fontWeight: 500,
-                      paddingLeft: 14,
+                      backgroundColor: "#F5F5F5",
+                      paddingLeft: 45,
+                      paddingVertical: 20,
+                      flexDirection: "row",
+                      alignItems: "center",
                     }}
                   >
-                    Edit Profile
-                  </Text>
-                </View>
+                    <MaterialCommunityIcons
+                      name='pencil-outline'
+                      size={18}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        lineHeight: 19,
+                        fontWeight: 500,
+                        paddingLeft: 14,
+                      }}
+                    >
+                      Edit Profile
+                    </Text>
+                  </View>
+                </Pressable>
                 <View
                   style={{
                     backgroundColor: "#F5F5F5",
