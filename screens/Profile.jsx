@@ -576,32 +576,40 @@ const Profile = ({ navigation }) => {
                     </Text>
                   </View>
                 </Pressable>
-                <View
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingLeft: 45,
-                    paddingVertical: 20,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    borderTopColor: "#EBEBEB",
-                    borderTopWidth: 1,
-                  }}
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate(
+                      "Subscription"
+                    )
+                  }
                 >
-                  <MaterialCommunityIcons
-                    name='bell-outline'
-                    size={18}
-                  />
-                  <Text
+                  <View
                     style={{
-                      fontSize: 16,
-                      lineHeight: 19,
-                      fontWeight: 500,
-                      paddingLeft: 14,
+                      backgroundColor: "#F5F5F5",
+                      paddingLeft: 45,
+                      paddingVertical: 20,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      borderTopColor: "#EBEBEB",
+                      borderTopWidth: 1,
                     }}
                   >
-                    Manage Email Subscription
-                  </Text>
-                </View>
+                    <MaterialCommunityIcons
+                      name='bell-outline'
+                      size={18}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        lineHeight: 19,
+                        fontWeight: 500,
+                        paddingLeft: 14,
+                      }}
+                    >
+                      Manage Email Subscription
+                    </Text>
+                  </View>
+                </Pressable>
               </Animated.View>
             </View>
           ) : null}

@@ -31,7 +31,7 @@ const CourseCard = ({
         style={{
           width: "100%",
           height: 188,
-          resizeMode: "contain",
+          resizeMode: "cover",
         }}
       />
       <View
