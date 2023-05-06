@@ -3,7 +3,6 @@ import React from "react";
 import { Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { TextInput } from "react-native";
-import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { ScrollView } from "react-native";
@@ -12,6 +11,8 @@ import CourseCard from "../components/CourseCard";
 import { FlatList } from "react-native";
 import BlogCard from "../components/BlogCard";
 import CourseIllustration from "../assets/Illustration.svg";
+import { useTailwind } from "tailwind-rn";
+import SearchBar from "../components/SearchBar";
 
 export const latestCourses = [
   {
@@ -194,213 +195,156 @@ export const latestBlogs = [
 ];
 
 export default function Home() {
+  const tailwind = useTailwind();
   return (
     <ScrollView
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-        paddingHorizontal: 20,
-      }}
+      style={tailwind(
+        "flex-1 bg-white px-[20px]"
+      )}
     >
       <View>
         <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingTop: 21,
-          }}
+          style={tailwind(
+            "flex-row items-center justify-between pt-[21px]"
+          )}
         >
           <View>
             <Text
-              style={{
-                fontSize: 20,
-                lineHeight: 24,
-                fontWeight: 500,
-              }}
+              style={tailwind(
+                "text-[20px] font-medium"
+              )}
             >
               Hello!
               <Text
-                style={{
-                  fontWeight: 600,
-                  fontSize: 22,
-                }}
+                style={tailwind(
+                  "text-[22px] font-semibold"
+                )}
               >
                 {" "}
                 Zayarwin
               </Text>
             </Text>
             <Text
-              style={{
-                paddingTop: 5,
-                fontSize: 12,
-                lineHeight: 15,
-                color: "#656565",
-                fontWeight: 400,
-              }}
+              style={tailwind(
+                "pt-[5px] text-[14px] text-[#656565] font-normal"
+              )}
             >
               Welcome from creative Coder
             </Text>
           </View>
           <Image
             source={require("../assets/teacher-5.png")}
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 28,
-            }}
+            style={tailwind(
+              "w-[56px] h-[56px] rounded-full"
+            )}
           />
         </View>
-        <View style={styles.searchBarContainer}>
-          <Ionicons
-            name='search-sharp'
-            size={30}
-            color='#656565'
-            style={{
-              position: "absolute",
-              left: 25,
-            }}
-          />
-          <TextInput
-            style={styles.searchInput}
-            placeholder='What do you want to learn today?'
-            placeholderTextColor='#656565'
-          />
-        </View>
+        <SearchBar
+          placeholder={
+            "What do you want to learn today?"
+          }
+          style={tailwind("mt-[34px]")}
+        />
       </View>
-      <View
-        style={{
-          marginTop: 20,
-        }}
-      >
+      <View style={tailwind("mt-[57px]")}>
         <Text
-          style={{
-            fontSize: 16,
-            lineHeight: 19,
-            fontWeight: 600,
-            marginBottom: 25,
-          }}
+          style={tailwind(
+            "text-[16px] font-semibold mb-[25px]"
+          )}
         >
           Categories
         </Text>
         <View
-          style={{
-            flexWrap: "wrap",
-            flexDirection: "row",
-            gap: 14,
-          }}
+          style={[
+            tailwind("flex-wrap flex-row"),
+            { gap: 14 },
+          ]}
         >
-          <View
-            style={{
-              width: "100%",
-            }}
-          >
+          <View style={tailwind("w-full")}>
             <LinearGradient
               colors={["#0092EF", "#0063A3"]}
               start={[0, 0.5]}
               end={[1, 0.5]}
-              style={[styles.card]}
+              style={tailwind(
+                "px-[20px] py-[16px] rounded-[10px]"
+              )}
             >
               <Text
-                style={{
-                  color: "white",
-                  fontSize: 20,
-                  fontWeight: 600,
-                  lineHeight: 24,
-                }}
+                style={tailwind(
+                  "text-white text-[20px] font-semibold leading-[24px]"
+                )}
               >
                 Courses
               </Text>
               <Text
-                style={{
-                  fontSize: 12,
-                  lineHeight: 15,
-                  fontWeight: 400,
-                  color: "white",
-                  paddingTop: 8,
-                }}
+                style={tailwind(
+                  "text-[12px] leading-[15px] font-normal text-white pt-[8px]"
+                )}
               >
                 View all Courses we Offer
               </Text>
             </LinearGradient>
             <CourseIllustration
-              style={{
-                position: "absolute",
-                width: 158,
-                right: 31,
-                top: -66,
-              }}
+              style={tailwind(
+                "absolute w-[158px] right-[31px] -top-[66px]"
+              )}
             />
           </View>
-          <View style={{ width: "48%" }}>
+          <View style={tailwind("w-[48%]")}>
             <LinearGradient
               colors={["#0092EF", "#0063A3"]}
               start={[0, 0.5]}
               end={[1, 0.5]}
-              style={[styles.card]}
+              style={tailwind(
+                "px-[20px] py-[16px] rounded-[10px]"
+              )}
             >
               <Text
-                style={{
-                  color: "white",
-                  fontSize: 20,
-                  fontWeight: 600,
-                  lineHeight: 40,
-                }}
+                style={tailwind(
+                  "text-white text-[20px] font-semibold leading-[40px]"
+                )}
               >
                 Blogs{"   "}
                 <Text
-                  style={{
-                    fontSize: 35,
-                  }}
+                  style={tailwind("text-[35px]")}
                 >
                   📚
                 </Text>
               </Text>
               <Text
-                style={{
-                  fontSize: 12,
-                  lineHeight: 15,
-                  fontWeight: 400,
-                  color: "white",
-                  paddingTop: 8,
-                }}
+                style={tailwind(
+                  "text-[12px] leading-[15px] font-normal text-white pt-[8px]"
+                )}
               >
                 Read 5 mins Blogs Daily
               </Text>
             </LinearGradient>
           </View>
-          <View style={{ width: "48%" }}>
+          <View style={tailwind("w-[48%]")}>
             <LinearGradient
               colors={["#0092EF", "#0063A3"]}
               start={[0, 0.5]}
               end={[1, 0.5]}
-              style={[styles.card]}
+              style={tailwind(
+                "px-[20px] py-[16px] rounded-[10px]"
+              )}
             >
               <Text
-                style={{
-                  color: "white",
-                  fontSize: 20,
-                  fontWeight: 600,
-                  lineHeight: 40,
-                }}
+                style={tailwind(
+                  "text-white text-[20px] font-semibold leading-[40px]"
+                )}
               >
                 Tricks{"   "}
                 <Text
-                  style={{
-                    fontSize: 35,
-                  }}
+                  style={tailwind("text-[35px]")}
                 >
                   🪄
                 </Text>
               </Text>
               <Text
-                style={{
-                  fontSize: 12,
-                  lineHeight: 15,
-                  fontWeight: 400,
-                  color: "white",
-                  paddingTop: 8,
-                }}
+                style={tailwind(
+                  "text-[12px] leading-[15px] font-normal text-white pt-[8px]"
+                )}
               >
                 Code smart with Tricks
               </Text>
@@ -408,20 +352,16 @@ export default function Home() {
           </View>
         </View>
       </View>
-      <View style={{ marginTop: 40 }}>
+      <View style={tailwind("mt-[40px]")}>
         <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={tailwind(
+            "flex-row items-center justify-between"
+          )}
         >
           <Text
-            style={{
-              fontSize: 16,
-              lineHeight: 19,
-              fontWeight: 600,
-            }}
+            style={tailwind(
+              "text-[16px] leading-[19px] font-semibold"
+            )}
           >
             Latest Courses
           </Text>
@@ -432,7 +372,7 @@ export default function Home() {
           />
         </View>
         <FlatList
-          style={{ marginTop: 25 }}
+          style={tailwind("mt-[25px]")}
           horizontal
           decelerationRate='fast'
           snapToAlignment='start'
@@ -453,20 +393,16 @@ export default function Home() {
           }}
         />
       </View>
-      <View style={{ marginVertical: 40 }}>
+      <View style={tailwind("my-[40px]")}>
         <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={tailwind(
+            "flex-row items-center justify-between"
+          )}
         >
           <Text
-            style={{
-              fontSize: 16,
-              lineHeight: 19,
-              fontWeight: 600,
-            }}
+            style={tailwind(
+              "text-[16px] leading-[19px] font-semibold"
+            )}
           >
             Latest Blogs
           </Text>
@@ -477,7 +413,7 @@ export default function Home() {
           />
         </View>
         <FlatList
-          style={{ marginTop: 25 }}
+          style={tailwind("mt-[25px]")}
           horizontal
           decelerationRate='fast'
           snapToAlignment='start'
@@ -502,23 +438,3 @@ export default function Home() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  searchBarContainer: {
-    marginVertical: 34,
-    justifyContent: "center",
-    paddingVertical: 15,
-    backgroundColor: "#F5F5F5",
-    borderRadius: 100,
-  },
-  searchInput: {
-    fontSize: 16,
-    marginLeft: 75,
-    marginRight: 10,
-  },
-  card: {
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderRadius: 10,
-  },
-});

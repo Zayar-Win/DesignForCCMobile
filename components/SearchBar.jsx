@@ -1,26 +1,30 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { TextInput } from "react-native";
+import { useTailwind } from "tailwind-rn";
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, style }) => {
+  const tailwind = useTailwind();
   return (
-    <View style={styles.searchBarContainer}>
+    <View
+      style={[
+        tailwind(
+          "mt-[10px] justify-center py-[15px] bg-white-gray-soft rounded-[100px]"
+        ),
+        style,
+      ]}
+    >
       <Ionicons
         name='search-sharp'
         size={30}
         color='#656565'
-        style={{
-          position: "absolute",
-          left: 25,
-        }}
+        style={tailwind("absolute left-[25px]")}
       />
       <TextInput
-        style={styles.searchInput}
+        style={tailwind(
+          "text-[16px] ml-[75px] mr-[10px]"
+        )}
         placeholder={placeholder}
         placeholderTextColor='#656565'
       />
@@ -29,19 +33,3 @@ const SearchBar = ({ placeholder }) => {
 };
 
 export default SearchBar;
-
-const styles = StyleSheet.create({
-  searchBarContainer: {
-    marginTop: 10,
-    justifyContent: "center",
-    paddingVertical: 15,
-    backgroundColor: "#F5F5F5",
-    borderRadius: 100,
-    marginHorizontal: 20,
-  },
-  searchInput: {
-    fontSize: 16,
-    marginLeft: 75,
-    marginRight: 10,
-  },
-});

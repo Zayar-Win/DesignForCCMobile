@@ -1,29 +1,27 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { Pressable } from "react-native";
+import { useTailwind } from "tailwind-rn";
 
 const Tag = ({ backgroundColor, text }) => {
+  const tailwind = useTailwind();
   return (
     <View
-      style={{
-        paddingVertical: 4,
+      style={[
+        tailwind(
+          "py-[4px] px-[8px] rounded-[5px] "
+        ),
 
-        paddingHorizontal: 8,
-        borderRadius: 5,
-        backgroundColor,
-      }}
+        {
+          backgroundColor,
+        },
+      ]}
     >
       <Pressable>
         <Text
-          style={{
-            color: "white",
-            fontSize: 8,
-            fontWeight: 600,
-          }}
+          style={tailwind(
+            "text-white text-[8px] font-semibold"
+          )}
         >
           {text}
         </Text>
@@ -33,5 +31,3 @@ const Tag = ({ backgroundColor, text }) => {
 };
 
 export default Tag;
-
-const styles = StyleSheet.create({});

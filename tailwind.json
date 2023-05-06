@@ -1,0 +1,406 @@
+{
+	"absolute": {
+		"style": {
+			"position": "absolute"
+		}
+	},
+	"left-[25px]": {
+		"style": {
+			"left": 25
+		}
+	},
+	"-top-[66px]": {
+		"style": {
+			"top": -66
+		}
+	},
+	"right-[31px]": {
+		"style": {
+			"right": 31
+		}
+	},
+	"my-[40px]": {
+		"style": {
+			"marginTop": 40,
+			"marginBottom": 40
+		}
+	},
+	"mb-[25px]": {
+		"style": {
+			"marginBottom": 25
+		}
+	},
+	"ml-[75px]": {
+		"style": {
+			"marginLeft": 75
+		}
+	},
+	"mr-[10px]": {
+		"style": {
+			"marginRight": 10
+		}
+	},
+	"mt-[10px]": {
+		"style": {
+			"marginTop": 10
+		}
+	},
+	"mt-[34px]": {
+		"style": {
+			"marginTop": 34
+		}
+	},
+	"mt-[57px]": {
+		"style": {
+			"marginTop": 57
+		}
+	},
+	"mt-[40px]": {
+		"style": {
+			"marginTop": 40
+		}
+	},
+	"mt-[25px]": {
+		"style": {
+			"marginTop": 25
+		}
+	},
+	"mr-[14px]": {
+		"style": {
+			"marginRight": 14
+		}
+	},
+	"mb-[8px]": {
+		"style": {
+			"marginBottom": 8
+		}
+	},
+	"flex": {
+		"style": {
+			"display": "flex"
+		}
+	},
+	"hidden": {
+		"style": {
+			"display": "none"
+		}
+	},
+	"h-[56px]": {
+		"style": {
+			"height": 56
+		}
+	},
+	"h-[188px]": {
+		"style": {
+			"height": 188
+		}
+	},
+	"w-[56px]": {
+		"style": {
+			"width": 56
+		}
+	},
+	"w-[188px]": {
+		"style": {
+			"width": 188
+		}
+	},
+	"w-full": {
+		"style": {
+			"width": "100%"
+		}
+	},
+	"w-[158px]": {
+		"style": {
+			"width": 158
+		}
+	},
+	"w-[48%]": {
+		"style": {
+			"width": "48%"
+		}
+	},
+	"flex-1": {
+		"style": {
+			"flexGrow": 1,
+			"flexShrink": 1,
+			"flexBasis": "0%"
+		}
+	},
+	"flex-row": {
+		"style": {
+			"flexDirection": "row"
+		}
+	},
+	"flex-wrap": {
+		"style": {
+			"flexWrap": "wrap"
+		}
+	},
+	"items-center": {
+		"style": {
+			"alignItems": "center"
+		}
+	},
+	"justify-center": {
+		"style": {
+			"justifyContent": "center"
+		}
+	},
+	"justify-between": {
+		"style": {
+			"justifyContent": "space-between"
+		}
+	},
+	"overflow-hidden": {
+		"style": {
+			"overflow": "hidden"
+		}
+	},
+	"rounded-[100px]": {
+		"style": {
+			"borderTopLeftRadius": 100,
+			"borderTopRightRadius": 100,
+			"borderBottomRightRadius": 100,
+			"borderBottomLeftRadius": 100
+		}
+	},
+	"rounded-[10px]": {
+		"style": {
+			"borderTopLeftRadius": 10,
+			"borderTopRightRadius": 10,
+			"borderBottomRightRadius": 10,
+			"borderBottomLeftRadius": 10
+		}
+	},
+	"rounded-full": {
+		"style": {
+			"borderTopLeftRadius": 9999,
+			"borderTopRightRadius": 9999,
+			"borderBottomRightRadius": 9999,
+			"borderBottomLeftRadius": 9999
+		}
+	},
+	"rounded-[5px]": {
+		"style": {
+			"borderTopLeftRadius": 5,
+			"borderTopRightRadius": 5,
+			"borderBottomRightRadius": 5,
+			"borderBottomLeftRadius": 5
+		}
+	},
+	"border-[1px]": {
+		"style": {
+			"borderTopWidth": 1,
+			"borderRightWidth": 1,
+			"borderBottomWidth": 1,
+			"borderLeftWidth": 1
+		}
+	},
+	"border-white-gray": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(235 235 235 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(235 235 235 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(235 235 235 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(235 235 235 / var(--tw-border-opacity))"
+		}
+	},
+	"bg-white": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-white-gray-soft": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(245 245 245 / var(--tw-bg-opacity))"
+		}
+	},
+	"px-[20px]": {
+		"style": {
+			"paddingLeft": 20,
+			"paddingRight": 20
+		}
+	},
+	"py-[15px]": {
+		"style": {
+			"paddingTop": 15,
+			"paddingBottom": 15
+		}
+	},
+	"py-[16px]": {
+		"style": {
+			"paddingTop": 16,
+			"paddingBottom": 16
+		}
+	},
+	"px-[14px]": {
+		"style": {
+			"paddingLeft": 14,
+			"paddingRight": 14
+		}
+	},
+	"px-[8px]": {
+		"style": {
+			"paddingLeft": 8,
+			"paddingRight": 8
+		}
+	},
+	"py-[4px]": {
+		"style": {
+			"paddingTop": 4,
+			"paddingBottom": 4
+		}
+	},
+	"pt-[21px]": {
+		"style": {
+			"paddingTop": 21
+		}
+	},
+	"pt-[5px]": {
+		"style": {
+			"paddingTop": 5
+		}
+	},
+	"pt-[8px]": {
+		"style": {
+			"paddingTop": 8
+		}
+	},
+	"pb-[8px]": {
+		"style": {
+			"paddingBottom": 8
+		}
+	},
+	"pb-[15px]": {
+		"style": {
+			"paddingBottom": 15
+		}
+	},
+	"pb-[20px]": {
+		"style": {
+			"paddingBottom": 20
+		}
+	},
+	"text-[12px]": {
+		"style": {
+			"fontSize": 12
+		}
+	},
+	"text-[14px]": {
+		"style": {
+			"fontSize": 14
+		}
+	},
+	"text-[16px]": {
+		"style": {
+			"fontSize": 16
+		}
+	},
+	"text-[20px]": {
+		"style": {
+			"fontSize": 20
+		}
+	},
+	"text-[22px]": {
+		"style": {
+			"fontSize": 22
+		}
+	},
+	"text-[35px]": {
+		"style": {
+			"fontSize": 35
+		}
+	},
+	"text-[13px]": {
+		"style": {
+			"fontSize": 13
+		}
+	},
+	"text-[10px]": {
+		"style": {
+			"fontSize": 10
+		}
+	},
+	"text-[8px]": {
+		"style": {
+			"fontSize": 8
+		}
+	},
+	"font-medium": {
+		"style": {
+			"fontWeight": "500"
+		}
+	},
+	"font-normal": {
+		"style": {
+			"fontWeight": "400"
+		}
+	},
+	"font-semibold": {
+		"style": {
+			"fontWeight": "600"
+		}
+	},
+	"leading-[15px]": {
+		"style": {
+			"lineHeight": 15
+		}
+	},
+	"leading-[24px]": {
+		"style": {
+			"lineHeight": 24
+		}
+	},
+	"leading-[40px]": {
+		"style": {
+			"lineHeight": 40
+		}
+	},
+	"leading-[19px]": {
+		"style": {
+			"lineHeight": 19
+		}
+	},
+	"leading-[17px]": {
+		"style": {
+			"lineHeight": 17
+		}
+	},
+	"leading-[10px]": {
+		"style": {
+			"lineHeight": 10
+		}
+	},
+	"leading-[11px]": {
+		"style": {
+			"lineHeight": 11
+		}
+	},
+	"text-[#656565]": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(101 101 101 / var(--tw-text-opacity))"
+		}
+	},
+	"text-white": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
+		}
+	},
+	"text-black-gray": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(101 101 101 / var(--tw-text-opacity))"
+		}
+	},
+	"text-black": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(35 36 37 / var(--tw-text-opacity))"
+		}
+	}
+}

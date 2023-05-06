@@ -40,6 +40,8 @@ import SocialProfiles from "./screens/SocialProfiles";
 import ChangePassword from "./screens/ChangePassword";
 import Invoices from "./screens/Invoices";
 import Subscription from "./screens/Subscription";
+import { TailwindProvider } from "tailwind-rn";
+import utilities from "./tailwind.json";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -201,127 +203,134 @@ export default function App() {
   }, []);
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <SafeAreaView
-        style={styles.androidSafeArea}
-      >
-        <NavigationContainer>
-          {user ? (
-            <Tab.Navigator
-              screenOptions={{
-                activeTintColor: "#0092EF",
-                inactiveTintColor:
-                  "rgba(35, 36, 37, 0.5)",
-                tabBarStyle: {
-                  paddingBottom: 23,
-                  paddingTop: 23,
-                  height: 88,
-                  alignItems: "center",
-                },
-                tabBarItemStyle: {
-                  alignItems: "center",
-                },
-                tabBarIconStyle: {
-                  marginBottom: 8,
-                },
-                tabBarLabelStyle: {
-                  color: "rgba(35, 36, 37, 0.5)",
-                  fontSize: 10,
-                  lineHeight: 12,
-                  fontWeight: 600,
-                },
-              }}
-            >
-              <Tab.Screen
-                name='Home'
-                component={HomeScreen}
-                options={{
-                  headerShown: false,
-                  tabBarIcon: ({
-                    color,
-                    size,
-                  }) => (
-                    <Entypo
-                      name='home'
-                      color={color}
-                      size={size}
-                    />
-                  ),
+    <TailwindProvider utilities={utilities}>
+      <SafeAreaProvider style={styles.container}>
+        <SafeAreaView
+          style={styles.androidSafeArea}
+        >
+          <NavigationContainer>
+            {user ? (
+              <Tab.Navigator
+                screenOptions={{
+                  activeTintColor: "#0092EF",
+                  inactiveTintColor:
+                    "rgba(35, 36, 37, 0.5)",
+                  tabBarStyle: {
+                    paddingBottom: 23,
+                    paddingTop: 23,
+                    height: 88,
+                    alignItems: "center",
+                  },
+                  tabBarItemStyle: {
+                    alignItems: "center",
+                  },
+                  tabBarIconStyle: {
+                    marginBottom: 8,
+                  },
+                  tabBarLabelStyle: {
+                    color:
+                      "rgba(35, 36, 37, 0.5)",
+                    fontSize: 10,
+                    lineHeight: 12,
+                    fontWeight: 600,
+                  },
                 }}
-              />
-              <Tab.Screen
-                name='Courses'
-                component={CoursesScreen}
-                options={{
-                  tabBarIcon: ({
-                    color,
-                    size,
-                  }) => (
-                    <FontAwesome5
-                      name='graduation-cap'
-                      color={color}
-                      size={size}
-                    />
-                  ),
-                }}
-              />
-              <Tab.Screen
-                name='Blogs'
-                component={BlogScreen}
-                options={{
-                  tabBarIcon: ({
-                    color,
-                    size,
-                  }) => (
-                    <MaterialCommunityIcons
-                      name='newspaper-variant-multiple-outline'
-                      size={size}
-                      color={color}
-                    />
-                  ),
-                }}
-              />
-              <Tab.Screen
-                name='Profile'
-                component={ProfileStackScreen}
-                options={{
-                  headerShown: false,
-                  tabBarIcon: ({
-                    color,
-                    size,
-                  }) => (
-                    <FontAwesome
-                      name='user-circle-o'
-                      size={size}
-                      color={color}
-                    />
-                  ),
-                }}
-              />
-            </Tab.Navigator>
-          ) : (
-            <Stack.Navigator initialRouteName='Login'>
-              <Stack.Screen
-                name='Login'
-                component={LoginScreen}
-                options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name='Signup'
-                component={SignupScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name='MyCourses'
-                component={MyCourses}
-              />
-            </Stack.Navigator>
-          )}
-        </NavigationContainer>
-      </SafeAreaView>
-    </SafeAreaProvider>
+              >
+                <Tab.Screen
+                  name='Home'
+                  component={HomeScreen}
+                  options={{
+                    headerShown: false,
+                    tabBarIcon: ({
+                      color,
+                      size,
+                    }) => (
+                      <Entypo
+                        name='home'
+                        color={color}
+                        size={size}
+                      />
+                    ),
+                  }}
+                />
+                <Tab.Screen
+                  name='Courses'
+                  component={CoursesScreen}
+                  options={{
+                    tabBarIcon: ({
+                      color,
+                      size,
+                    }) => (
+                      <FontAwesome5
+                        name='graduation-cap'
+                        color={color}
+                        size={size}
+                      />
+                    ),
+                  }}
+                />
+                <Tab.Screen
+                  name='Blogs'
+                  component={BlogScreen}
+                  options={{
+                    tabBarIcon: ({
+                      color,
+                      size,
+                    }) => (
+                      <MaterialCommunityIcons
+                        name='newspaper-variant-multiple-outline'
+                        size={size}
+                        color={color}
+                      />
+                    ),
+                  }}
+                />
+                <Tab.Screen
+                  name='Profile'
+                  component={ProfileStackScreen}
+                  options={{
+                    headerShown: false,
+                    tabBarIcon: ({
+                      color,
+                      size,
+                    }) => (
+                      <FontAwesome
+                        name='user-circle-o'
+                        size={size}
+                        color={color}
+                      />
+                    ),
+                  }}
+                />
+              </Tab.Navigator>
+            ) : (
+              <Stack.Navigator initialRouteName='VideoPlayer'>
+                <Stack.Screen
+                  name='Login'
+                  component={LoginScreen}
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name='Signup'
+                  component={SignupScreen}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name='MyCourses'
+                  component={MyCourses}
+                />
+                <Stack.Screen
+                  name='VideoPlayer'
+                  component={VideoPlayers}
+                />
+              </Stack.Navigator>
+            )}
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </TailwindProvider>
   );
 }
 

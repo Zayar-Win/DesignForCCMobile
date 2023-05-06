@@ -1,11 +1,8 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { Image } from "react-native";
 import Tag from "./Tag";
+import { useTailwind } from "tailwind-rn";
 
 const CourseCard = ({
   image,
@@ -15,87 +12,64 @@ const CourseCard = ({
   fee,
   tags,
 }) => {
+  const tailwind = useTailwind();
   return (
     <View
-      style={{
-        width: 188,
-        borderWidth: 1,
-        borderColor: "#EBEBEB",
-        borderRadius: 10,
-        overflow: "hidden",
-        marginRight: 14,
-      }}
+      style={tailwind(
+        "w-[188px] border-[1px] border-white-gray rounded-[10px] overflow-hidden mr-[14px]"
+      )}
     >
       <Image
         source={image}
-        style={{
-          width: "100%",
-          height: 188,
-          resizeMode: "cover",
-        }}
+        style={[
+          tailwind("w-full h-[188px]"),
+          { resizeMode: "cover" },
+        ]}
       />
       <View
-        style={{
-          paddingHorizontal: 14,
-          paddingVertical: 16,
-        }}
+        style={tailwind("px-[14px] py-[16px]")}
       >
         <Text
-          style={{
-            fontSize: 14,
-            lineHeight: 17,
-            fontWeight: 600,
-            paddingBottom: 8,
-          }}
+          style={tailwind(
+            "text-[14px] leading-[17px] font-semibold pb-[8px]"
+          )}
         >
           {title}
         </Text>
         <View
-          style={{
-            marginBottom: 8,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={tailwind(
+            "mb-[8px] flex-row items-center justify-between"
+          )}
         >
           <Text
-            style={{
-              fontSize: 13,
-              lineHeight: 15,
-              fontWeight: 400,
-              color: "#656565",
-            }}
+            style={tailwind(
+              "text-[14px] leading-[15px] font-normal text-black-gray"
+            )}
           >
             Chapters: {chapterCount}
           </Text>
           <Text
-            style={{
-              fontSize: 13,
-              lineHeight: 15,
-              fontWeight: 400,
-              color: "#656565",
-            }}
+            style={tailwind(
+              "text-[13px] leading-[15px] font-normal text-black-gray"
+            )}
           >
             Lessons: {lessonCount}
           </Text>
         </View>
         <Text
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            lineHeight: 15,
-            color: "#656565",
-            paddingBottom: 15,
-          }}
+          style={tailwind(
+            "text-[12px] font-medium leading-[15px] text-black-gray pb-[15px]"
+          )}
         >
           Fees: {fee} MMK
         </Text>
         <View
-          style={{
-            flexWrap: "wrap",
-            flexDirection: "row",
-            gap: 3,
-          }}
+          style={[
+            tailwind("flex-wrap flex-row"),
+            {
+              gap: 3,
+            },
+          ]}
         >
           {tags?.map((tag, i) => (
             <Tag
@@ -113,5 +87,3 @@ const CourseCard = ({
 };
 
 export default CourseCard;
-
-const styles = StyleSheet.create({});

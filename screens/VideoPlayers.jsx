@@ -1,310 +1,212 @@
-import * as ScreenOrientation from "expo-screen-orientation";
+import React, { useState, useRef } from "react";
+import { Video, Audio } from "expo-av";
 import {
-  Dimensions,
-  ScrollView,
-  StyleSheet,
+  View,
+  TouchableOpacity,
   Text,
 } from "react-native";
-import { ResizeMode } from "expo-av";
-import { setStatusBarHidden } from "expo-status-bar";
-import React, { useRef, useState } from "react";
-import VideoPlayer from "expo-video-player";
 
-const VideoPlayers = () => {
-  const [inFullscreen, setInFullsreen] =
+const VIDEO_URI = "your_video_url_here";
+
+export default VideoPlayers = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] =
     useState(false);
-  const [inFullscreen2, setInFullsreen2] =
-    useState(false);
-  const [isMute, setIsMute] = useState(false);
-  const refVideo = useRef(null);
-  const refVideo2 = useRef(null);
-  const refScrollView = useRef(null);
+  const [playbackSpeed, setPlaybackSpeed] =
+    useState(1.0);
+  const [currentPosition, setCurrentPosition] =
+    useState(167061);
+
+  const handlePlayPause = async () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        await videoRef.current.pauseAsync();
+        setIsPlaying(false);
+      } else {
+        await videoRef.current.playAsync();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const handleAudioVolume = async (type) => {
+    try {
+      if (videoRef.current) {
+        const videoStatus =
+          await videoRef.current.getStatusAsync();
+        const currentVolume = videoStatus.volume;
+        if (type === "increase") {
+          if (currentVolume <= 0.9) {
+            await videoRef.current.setVolumeAsync(
+              currentVolume + 0.1
+            );
+          } else if (currentVolume === 1) {
+            return;
+          } else {
+            await videoRef.current.setVolumeAsync(
+              1
+            );
+          }
+        } else if (type === "reduce") {
+          if (currentVolume > 0.1) {
+            await videoRef.current.setVolumeAsync(
+              currentVolume - 0.1
+            );
+          } else {
+            await videoRef.current.setVolumeAsync(
+              0
+            );
+          }
+        }
+      }
+    } catch (error) {
+      console.log(
+        "Error in handleAudioVolume:",
+        error
+      );
+    }
+  };
+
+  const handleSeek = async (type) => {
+    try {
+      if (videoRef.current) {
+        const videoStatus =
+          await videoRef.current.getStatusAsync();
+        const currentPosition =
+          videoStatus.positionMillis;
+        const newPosition =
+          type === "forward"
+            ? currentPosition + 15000
+            : currentPosition - 15000;
+        await videoRef.current.setPositionAsync(
+          newPosition
+        );
+      }
+    } catch (e) {
+      console.log("Error in handleSeek:", e);
+    }
+  };
+
+  const handlePlaybackStatusUpdate = (
+    playbackStatus
+  ) => {
+    if (playbackStatus.didJustFinish) {
+      setIsPlaying(false);
+      videoRef.current.replayAsync();
+    }
+  };
+
+  const handlePlaybackSpeed = async (type) => {
+    try {
+      if (videoRef.current) {
+        const videoStatus =
+          await videoRef.current.getStatusAsync();
+        console.log(videoStatus);
+        const currentSpeed = videoStatus.rate;
+        const currentPosition =
+          videoStatus.positionMillis;
+        if (type === "increase") {
+          await videoRef.current.setRateAsync(
+            currentSpeed + 0.25,
+            true
+          );
+          setPlaybackSpeed(currentSpeed + 0.25);
+          await videoRef.current.setPositionAsync(
+            currentPosition
+          );
+          setCurrentPosition(currentPosition);
+        } else if (type === "reduce") {
+          await videoRef.current.setRateAsync(
+            currentSpeed - 0.25,
+            true
+          );
+          setPlaybackSpeed(currentSpeed - 0.25);
+          await videoRef.current.setPositionAsync(
+            currentPosition
+          );
+          setCurrentPosition(currentPosition);
+        }
+      }
+    } catch (e) {
+      console.log(
+        "Error in handlePlaybackSpeed : ",
+        e
+      );
+    }
+  };
 
   return (
-    <ScrollView
-      scrollEnabled={!inFullscreen2}
-      ref={refScrollView}
-      onContentSizeChange={() => {
-        if (inFullscreen2) {
-          refScrollView.current.scrollToEnd({
-            animated: true,
-          });
-        }
-      }}
-      style={styles.container}
-      contentContainerStyle={
-        styles.contentContainer
-      }
-    >
-      <Text
-        style={[
-          styles.text,
-          {
-            fontWeight: "bold",
-            textTransform: "uppercase",
-          },
-        ]}
-      >
-        Examples
-      </Text>
-      {/* ShouldPlay (autoplay) is true only in the first example */}
-      <Text style={styles.text}>Basic</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
+    <View>
+      <Video
+        ref={videoRef}
+        source={{
+          uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         }}
-      />
-
-      <Text style={styles.text}>Local file</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>
-        Only video without controls
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        slider={{
-          visible: false,
-        }}
-        fullscreen={{
-          visible: false,
-        }}
-        timeVisible={false}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>
-        Some styling
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        playbackCallback={(status) =>
-          console.log(status)
-        }
+        positionMillis={currentPosition} // set the video to start at 5 seconds
+        isMuted={false}
         style={{
-          videoBackgroundColor: "transparent",
-          controlsBackgroundColor: "red",
+          width: 400,
           height: 200,
         }}
-      />
-
-      <Text style={styles.text}>
-        With custom icons
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        icon={{
-          play: (
-            <Text style={{ color: "#FFF" }}>
-              PLAY
-            </Text>
-          ),
-          pause: (
-            <Text style={{ color: "#FFF" }}>
-              PAUSE
-            </Text>
-          ),
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>
-        With some more styling
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        style={{
-          height: 160,
-          width: 160,
-          videoBackgroundColor: "yellow",
-          controlsBackgroundColor: "blue",
-        }}
-      />
-
-      <Text style={styles.text}>With Mute</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-          isMuted: isMute,
-        }}
-        mute={{
-          enterMute: () => setIsMute(!isMute),
-          exitMute: () => setIsMute(!isMute),
-          isMute,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>
-        Fullscren icon hidden
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        fullscreen={{
-          visible: false,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>
-        Ref - clicking on Enter/Exit fullscreen
-        changes playing
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-          ref: refVideo,
-        }}
-        fullscreen={{
-          enterFullscreen: () => {
-            setInFullsreen(!inFullscreen);
-            refVideo.current.setStatusAsync({
-              shouldPlay: true,
-            });
-          },
-          exitFullscreen: () => {
-            setInFullsreen(!inFullscreen);
-            refVideo.current.setStatusAsync({
-              shouldPlay: false,
-            });
-          },
-          inFullscreen,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>Fullscren</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-          ref: refVideo2,
-        }}
-        fullscreen={{
-          inFullscreen: inFullscreen2,
-          enterFullscreen: async () => {
-            setStatusBarHidden(true, "fade");
-            setInFullsreen2(!inFullscreen2);
-            await ScreenOrientation.lockAsync(
-              ScreenOrientation.OrientationLock
-                .LANDSCAPE_LEFT
-            );
-            refVideo2.current.setStatusAsync({
-              shouldPlay: true,
-            });
-          },
-          exitFullscreen: async () => {
-            setStatusBarHidden(false, "fade");
-            setInFullsreen2(!inFullscreen2);
-            await ScreenOrientation.lockAsync(
-              ScreenOrientation.OrientationLock
-                .DEFAULT
-            );
-          },
-        }}
-        style={{
-          videoBackgroundColor: "black",
-          height: inFullscreen2
-            ? Dimensions.get("window").width
-            : 160,
-          width: inFullscreen2
-            ? Dimensions.get("window").height
-            : 320,
-        }}
-      />
-
-      <Text style={styles.text}>
-        Custom title
-      </Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: ResizeMode.CONTAIN,
-          source: {
-            uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          },
-        }}
-        style={{
-          videoBackgroundColor: "black",
-        }}
-        header={
-          <Text style={{ color: "#FFF" }}>
-            Custom title
-          </Text>
+        resizeMode='contain'
+        onPlaybackStatusUpdate={
+          handlePlaybackStatusUpdate
         }
+        shouldPlay={true}
+        rate={playbackSpeed}
       />
-    </ScrollView>
+
+      <TouchableOpacity onPress={handlePlayPause}>
+        {isPlaying ? (
+          <Text>Pause</Text>
+        ) : (
+          <Text>Play</Text>
+        )}
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() =>
+          handleAudioVolume("increase")
+        }
+      >
+        <Text>Increase Volume</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() =>
+          handleAudioVolume("reduce")
+        }
+      >
+        <Text>Reduce Volume</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => handleSeek("backward")}
+      >
+        <Text>Backward 15s</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => handleSeek("forward")}
+      >
+        <Text>Forward 15s</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() =>
+          handlePlaybackSpeed("reduce")
+        }
+      >
+        <Text>Decrease Playback Speed</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() =>
+          handlePlaybackSpeed("increase")
+        }
+      >
+        <Text>Increase Playback speed</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#FFF",
-    flex: 1,
-  },
-  contentContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 40,
-  },
-  text: {
-    marginTop: 36,
-    marginBottom: 12,
-  },
-});
-
-export default VideoPlayers;
