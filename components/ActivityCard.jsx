@@ -1,14 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React, { useRef } from "react";
 import Reply from "../assets/Reply.svg";
 import Comment from "../assets/Comment Icon.svg";
 import Completed from "../assets/Completed Icon.svg";
 import Love from "../assets/Love Icon.svg";
 import Enroll from "../assets/Enroll Icon.svg";
+import { useTailwind } from "tailwind-rn";
 
 const ActivityCard = ({
   type,
@@ -17,6 +14,7 @@ const ActivityCard = ({
   replyUser,
   created_at,
 }) => {
+  const tailwind = useTailwind();
   let Icon = null;
   let prefixTitle = "";
   if (type === "reply") {
@@ -38,69 +36,44 @@ const ActivityCard = ({
 
   return (
     <View
-      style={{
-        flexDirection: "row",
-        flex: 1,
-        width: "100%",
-        padding: 20,
-        borderBottomColor: "#EBEBEB",
-        borderBottomWidth: 1,
-      }}
+      style={tailwind(
+        "flex-row flex-1 w-full p-[20px] border-b-white-gray border-b-[1px]"
+      )}
     >
       <Icon
         width={36}
         height={30}
-        style={{
-          marginRight: 16,
-        }}
+        style={tailwind("mr-[16px]")}
       />
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
+      <View style={tailwind("flex-1")}>
         <Text
-          style={{
-            fontSize: 16,
-            fontWeight: 600,
-            lineHeight: 19,
-            color: "#232425",
-          }}
+          style={tailwind(
+            "text-[16px] font-semibold leading-[19px] text-black"
+          )}
         >
           {prefixTitle}{" "}
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 500,
-              lineHeight: 19,
-              color: "#0092EF",
-            }}
+            style={tailwind(
+              "text-[16px] font-medium leading-[19px] text-primary"
+            )}
           >
             {lessonTitle}
           </Text>
         </Text>
         {replyComment ? (
           <Text
-            style={{
-              fontSize: 12,
-              lineHeight: 15,
-              fontWeight: 600,
-              color: "#656565",
-              paddingTop: 8,
-            }}
+            style={tailwind(
+              "text-[12px] leading-[15px] font-semibold text-black-gray pt-[8px]"
+            )}
           >
             {replyUser.name} : {replyComment}
           </Text>
         ) : null}
 
         <Text
-          style={{
-            fontSize: 12,
-            lineHeight: 15,
-            fontWeight: 500,
-            color: "#656565",
-            paddingTop: 8,
-          }}
+          style={tailwind(
+            "text-[12px] leading-[15px] font-medium text-black-gray pt-[8px]"
+          )}
         >
           {created_at}
         </Text>
@@ -110,5 +83,3 @@ const ActivityCard = ({
 };
 
 export default ActivityCard;
-
-const styles = StyleSheet.create({});

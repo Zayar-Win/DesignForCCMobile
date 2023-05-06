@@ -1,12 +1,9 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import ActivityCard from "../components/ActivityCard";
 import CourseHorizontalCard from "../components/CourseHorizontalCard";
+import { useTailwind } from "tailwind-rn";
 
 const activities = [
   {
@@ -63,13 +60,12 @@ const activities = [
 ];
 
 const MyActivities = () => {
+  const tailwind = useTailwind();
   return (
-    <ScrollView style={styles.container}>
-      <View
-        style={{
-          marginTop: 16,
-        }}
-      >
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
+      <View style={tailwind("mt-[16px]")}>
         {activities?.map((activity, i) => (
           <ActivityCard
             key={i}
@@ -88,10 +84,3 @@ const MyActivities = () => {
 };
 
 export default MyActivities;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});
