@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { Pressable } from "react-native";
 import { Animated } from "react-native";
@@ -16,7 +12,14 @@ const Button = ({
 }) => {
   const tailwind = useTailwind();
   return (
-    <Animated.View style={[style, styles.button]}>
+    <Animated.View
+      style={[
+        style,
+        tailwind(
+          "bg-secondary rounded-[10px] h-[56px] w-full items-center justify-center"
+        ),
+      ]}
+    >
       <Pressable {...props}>
         <View
           style={tailwind(
@@ -24,7 +27,13 @@ const Button = ({
           )}
         >
           {icon ? icon : null}
-          <Text style={styles.text}>{text}</Text>
+          <Text
+            style={tailwind(
+              "text-white text-[18px] font-semibold"
+            )}
+          >
+            {text}
+          </Text>
         </View>
       </Pressable>
     </Animated.View>
@@ -32,20 +41,3 @@ const Button = ({
 };
 
 export default Button;
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#003E66",
-    height: 56,
-    borderRadius: 10,
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: 600,
-  },
-});

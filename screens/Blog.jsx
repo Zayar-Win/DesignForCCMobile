@@ -13,69 +13,47 @@ import CourseHorizontalCard from "../components/CourseHorizontalCard";
 import Pagination from "../components/Pagination";
 import BlogHorizontalCard from "../components/BlogHorizontalCard";
 import { latestBlogs as blogs } from "./Home";
+import { useTailwind } from "tailwind-rn";
+import SearchBar from "../components/SearchBar";
 
 const Blog = () => {
+  const tailwind = useTailwind();
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.searchBarContainer}>
-        <Ionicons
-          name='search-sharp'
-          size={30}
-          color='#656565'
-          style={{
-            position: "absolute",
-            left: 25,
-          }}
-        />
-        <TextInput
-          style={styles.searchInput}
-          placeholder='Search For Courses'
-          placeholderTextColor='#656565'
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
+      <View style={tailwind("px-[20px]")}>
+        <SearchBar
+          placeholder={"Search For Courses"}
         />
       </View>
       <View
-        style={{
-          marginTop: 16,
-          flexDirection: "row",
-          flex: 1,
-        }}
+        style={tailwind(
+          "mt-[16px] flex-row flex-1"
+        )}
       >
         <View
-          style={{
-            flexGrow: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            paddingVertical: 12,
-            borderWidth: 1,
-            borderColor: "#F5F5F5",
-          }}
+          style={tailwind(
+            "grow items-center justify-center py-[12px] border-[1px] border-white-gray-soft"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              lineHeight: 17,
-            }}
+            style={tailwind(
+              "text-[14px] font-medium leading-[17px]"
+            )}
           >
             Blogs
           </Text>
         </View>
         <View
-          style={{
-            flexGrow: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            paddingVertical: 12,
-            borderWidth: 1,
-            borderColor: "#F5F5F5",
-          }}
+          style={tailwind(
+            "grow items-center justify-center py-[12px] border-[1px] border-white-gray-soft"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              lineHeight: 17,
-            }}
+            style={tailwind(
+              "text-[14px] font-medium leading-[17px]"
+            )}
           >
             Tricks
           </Text>
@@ -85,9 +63,7 @@ const Blog = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
         snapToAlignment='end'
-        style={{
-          marginTop: 24,
-        }}
+        style={tailwind("mt-[24px]")}
         decelerationRate={"fast"}
         data={[
           "All",
@@ -102,7 +78,7 @@ const Blog = () => {
             <FilterTag
               style={
                 index === 0
-                  ? { marginLeft: 20 }
+                  ? tailwind("ml-[20px]")
                   : {}
               }
               tag={item}
@@ -113,7 +89,7 @@ const Blog = () => {
           );
         }}
       />
-      <View style={{ marginTop: 24 }}>
+      <View style={tailwind("mt-[24px]")}>
         {blogs.map((blog, i) => (
           <BlogHorizontalCard
             key={i}
@@ -131,10 +107,6 @@ const Blog = () => {
 export default Blog;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
   searchBarContainer: {
     marginTop: 10,
     justifyContent: "center",
