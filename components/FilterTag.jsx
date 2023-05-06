@@ -1,33 +1,30 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
+import { useTailwind } from "tailwind-rn";
 
 const FilterTag = ({ tag, isActive, style }) => {
+  const tailwind = useTailwind();
   return (
     <View
       style={[
-        {
-          paddingVertical: 10,
-          paddingHorizontal: 18,
-          backgroundColor: isActive
-            ? "#0092EF"
-            : "#F5F5F5",
-          borderRadius: 5,
-          marginRight: 8,
-        },
+        tailwind(
+          `py-[10px] px-[18px] ${
+            isActive
+              ? "bg-primary"
+              : "bg-white-gray-soft"
+          } rounded-[5px] mr-[5px]`
+        ),
         style,
       ]}
     >
       <Text
-        style={{
-          fontSize: 12,
-          lineHeight: 15,
-          fontWeight: 400,
-          color: isActive ? "white" : "#656565",
-        }}
+        style={tailwind(
+          `text-[12px] leading-[15px] font-normal ${
+            isActive
+              ? "text-white"
+              : "text-black-gray"
+          }`
+        )}
       >
         {tag}
       </Text>
@@ -36,5 +33,3 @@ const FilterTag = ({ tag, isActive, style }) => {
 };
 
 export default FilterTag;
-
-const styles = StyleSheet.create({});

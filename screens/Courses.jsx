@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -13,76 +9,59 @@ import FilterTag from "../components/FilterTag";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 import { latestCourses as courses } from "./Home";
+import { useTailwind } from "tailwind-rn";
 
 const Courses = () => {
+  const tailwind = useTailwind();
   return (
-    <ScrollView style={styles.container}>
-      <SearchBar
-        placeholder={"Search for coursers..."}
-      />
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
+      <View style={tailwind("px-[20px]")}>
+        <SearchBar
+          placeholder={"Search for coursers..."}
+        />
+      </View>
       <View
-        style={{
-          marginTop: 16,
-          flexDirection: "row",
-          flex: 1,
-        }}
+        style={tailwind(
+          "pt-[16px] flex-row flex-1"
+        )}
       >
         <View
-          style={{
-            flexGrow: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            paddingVertical: 12,
-            borderWidth: 1,
-            borderColor: "#F5F5F5",
-          }}
+          style={tailwind(
+            "grow items-center justify-center py-[12px] border-[1px] border-white-gray-soft"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              lineHeight: 17,
-            }}
+            style={tailwind(
+              "text-[14px] font-medium leading-[17px]"
+            )}
           >
             All
           </Text>
         </View>
         <View
-          style={{
-            flexGrow: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            paddingVertical: 12,
-            borderWidth: 1,
-            borderColor: "#F5F5F5",
-          }}
+          style={tailwind(
+            "grow items-center justify-center py-[12px] border-[1px] border-white-gray-soft"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              lineHeight: 17,
-            }}
+            style={tailwind(
+              "text-[14px] font-medium leading-[17px]"
+            )}
           >
             Free
           </Text>
         </View>
         <View
-          style={{
-            flexGrow: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            paddingVertical: 12,
-            borderWidth: 1,
-            borderColor: "#F5F5F5",
-          }}
+          style={tailwind(
+            "grow items-center justify-center py-[12px] border-[1px] border-white-gray-soft"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              lineHeight: 17,
-            }}
+            style={tailwind(
+              "text-[14px] font-medium leading-[17px]"
+            )}
           >
             Paid
           </Text>
@@ -93,9 +72,7 @@ const Courses = () => {
         snapToAlignment='end'
         decelerationRate={"fast"}
         showsHorizontalScrollIndicator={false}
-        style={{
-          marginTop: 24,
-        }}
+        style={tailwind("mt-[24px]")}
         data={[
           "All",
           "Javascript",
@@ -111,7 +88,7 @@ const Courses = () => {
               tag={item}
               style={
                 index === 0
-                  ? { marginLeft: 20 }
+                  ? tailwind("ml-[20px]")
                   : {}
               }
               isActive={
@@ -121,12 +98,13 @@ const Courses = () => {
           );
         }}
       />
-      <View style={{ marginTop: 24 }}>
+      <View style={tailwind("mt-[24px]")}>
         {courses?.map((course, i) => (
           <CourseHorizontalCard
             key={i}
             fee={course.fees}
             image={course.image}
+            title={course.title}
             tags={course.tags}
             lessonCount={course.lessonCount}
             chapterCount={course.chapterCount}
@@ -139,10 +117,3 @@ const Courses = () => {
 };
 
 export default Courses;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});

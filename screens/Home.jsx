@@ -30,7 +30,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "30,000",
+    fees: 30000,
   },
   {
     image: require("../assets/Courses-Thumbnail-17.png"),
@@ -47,7 +47,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "120,000",
+    fees: 120000,
   },
   {
     image: require("../assets/Courses-Thumbnail-V2-10.png"),
@@ -64,7 +64,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "70,000",
+    fees: 70000,
   },
   {
     image: require("../assets/Php-framework-thinking.png"),
@@ -81,7 +81,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "30,000",
+    fees: 30000,
   },
   {
     image: require("../assets/Vue-Firebase.png"),
@@ -98,7 +98,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "70,000",
+    fees: 70000,
   },
   {
     image: require("../assets/Javascript.png"),
@@ -115,7 +115,7 @@ export const latestCourses = [
         backgroundColor: "#EC272E",
       },
     ],
-    fees: "40,000",
+    fees: 0,
   },
 ];
 

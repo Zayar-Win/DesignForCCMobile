@@ -7,87 +7,77 @@ import {
 import React from "react";
 import Tag from "./Tag";
 import { Pressable } from "react-native";
+import { useTailwind } from "tailwind-rn";
+import Button from "./Button";
+import Premium from "../assets/Premium Icon.svg";
 
 const CourseHorizontalCard = ({
   image,
   chapterCount,
   lessonCount,
   title,
-  description,
   fee,
   tags,
 }) => {
+  const tailwind = useTailwind();
   return (
     <View
-      style={{
-        flexDirection: "row",
-        flex: 1,
-        width: "100%",
-        padding: 20,
-        borderBottomColor: "#EBEBEB",
-        borderBottomWidth: 1,
-      }}
+      style={tailwind(
+        "flex-row flex-1 w-full p-[20px] border-b-white-gray border-b-[1px]"
+      )}
     >
       <View
-        style={{ flex: 0.4, marginRight: 10 }}
+        style={tailwind("flex-[0.4] mr-[10px]")}
       >
         <Image
           source={image}
-          style={{
-            width: "100%",
-            height: "100%",
-            resizeMode: "stretch",
-            borderRadius: 5,
-          }}
+          style={[
+            tailwind(
+              "w-full h-full rounded-[5px]"
+            ),
+            {
+              resizeMode: "stretch",
+            },
+          ]}
         />
       </View>
-      <View style={{ flex: 0.6 }}>
+      <View style={tailwind("flex-[0.6]")}>
         <Text
-          style={{
-            fontSize: 18,
-            lineHeight: 22,
-            fontWeight: 600,
-            paddingBottom: 12,
-          }}
+          style={tailwind(
+            "text-[18px] leading-[22px] font-semibold pb-[12px]"
+          )}
         >
-          Website Development From Scratch
+          {title}
         </Text>
         <View
-          style={{
-            marginBottom: 8,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={tailwind(
+            "mb-[8px] flex-row items-center justify-between"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 500,
-              color: "#656565",
-            }}
+            style={tailwind(
+              "text-[14px] leading-[17px] font-medium text-black-gray"
+            )}
           >
             Chapters: {chapterCount}
           </Text>
           <Text
-            style={{
-              fontSize: 14,
-              lineHeight: 17,
-              fontWeight: 500,
-              color: "#656565",
-            }}
+            style={tailwind(
+              "text-[14px] leading-[17px] font-medium text-black-gray"
+            )}
           >
             Lessons: {lessonCount}
           </Text>
         </View>
         <View
-          style={{
-            flexWrap: "wrap",
-            flexDirection: "row",
-            gap: 3,
-            marginTop: 12,
-          }}
+          style={[
+            tailwind(
+              "flex-wrap flex-row mt-[12px]"
+            ),
+            {
+              gap: 3,
+            },
+          ]}
         >
           {tags?.map((tag, i) => (
             <Tag
@@ -100,27 +90,35 @@ const CourseHorizontalCard = ({
           ))}
         </View>
         <View
-          style={{
-            paddingHorizontal: 16,
-            paddingVertical: 8,
-            backgroundColor: "#003E66",
-            borderRadius: 3,
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: 12,
-          }}
+          style={tailwind(
+            "px-[16px] py-[9px] bg-secondary rounded-[3px] items-center justify-center mt-[12px]"
+          )}
         >
           <Pressable>
-            <Text
-              style={{
-                fontSize: 12,
-                lineHeight: 15,
-                fontWeight: 600,
-                color: "white",
-              }}
-            >
-              Fees: 30,000 MMK
-            </Text>
+            {fee === 0 ? (
+              <Text
+                style={tailwind(
+                  "text-[12px] leading-[15px] font-semibold text-white"
+                )}
+              >
+                Free Course
+              </Text>
+            ) : (
+              <View
+                style={tailwind(
+                  "flex-row items-center"
+                )}
+              >
+                <Premium width={18} height={14} />
+                <Text
+                  style={tailwind(
+                    "text-[12px] leading-[15px] font-semibold text-white pl-[8px]"
+                  )}
+                >
+                  Fees: {fee} MMK
+                </Text>
+              </View>
+            )}
           </Pressable>
         </View>
       </View>
@@ -129,5 +127,3 @@ const CourseHorizontalCard = ({
 };
 
 export default CourseHorizontalCard;
-
-const styles = StyleSheet.create({});
