@@ -6,7 +6,8 @@ import { useTailwind } from "tailwind-rn";
 
 const Button = ({
   text,
-  style,
+  buttonStyle,
+  textStyle,
   icon,
   ...props
 }) => {
@@ -14,10 +15,10 @@ const Button = ({
   return (
     <Animated.View
       style={[
-        style,
         tailwind(
-          "bg-secondary rounded-[10px] h-[56px] w-full items-center justify-center"
+          `bg-secondary rounded-[10px] h-[56px] w-full items-center justify-center`
         ),
+        buttonStyle,
       ]}
     >
       <Pressable {...props}>
@@ -28,9 +29,12 @@ const Button = ({
         >
           {icon ? icon : null}
           <Text
-            style={tailwind(
-              "text-white text-[18px] font-semibold"
-            )}
+            style={[
+              tailwind(
+                "text-white text-[18px] font-semibold"
+              ),
+              textStyle,
+            ]}
           >
             {text}
           </Text>

@@ -1,18 +1,17 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React, { useRef, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Pressable } from "react-native";
 import { Animated } from "react-native";
+import { useTailwind } from "tailwind-rn";
 
 const Switch = () => {
   const [isOn, setIsOn] = useState(false);
   const switchAnimation = useRef(
     new Animated.Value(0)
   ).current;
+
+  const tailwind = useTailwind();
 
   const handleToggle = () => {
     setIsOn(!isOn);
@@ -26,19 +25,17 @@ const Switch = () => {
   return (
     <Pressable onPress={handleToggle}>
       <View
-        style={{
-          width: 44,
-          height: 22,
-          borderRadius: 20,
-          backgroundColor: isOn
-            ? "#0092EF"
-            : "#EBEBEB",
-          justifyContent: "center",
-        }}
+        style={tailwind(
+          `w-[44px] h-[22px] rounded-[20px] ${
+            isOn ? "bg-primary" : "bg-white-gray"
+          } justify-center`
+        )}
       >
         <Animated.View
           style={[
-            styles.thumbStyle,
+            tailwind(
+              "w-[18px] h-[18px] rounded-[9px] absolute top-[2px] bg-white"
+            ),
             {
               transform: [
                 {
@@ -58,14 +55,3 @@ const Switch = () => {
 };
 
 export default Switch;
-
-const styles = StyleSheet.create({
-  thumbStyle: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
-    backgroundColor: "white",
-    position: "absolute",
-    top: 2,
-  },
-});
