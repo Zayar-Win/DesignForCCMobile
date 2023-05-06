@@ -16,6 +16,12 @@ module.exports = {
         yellow: "#FFB933",
         green: "#35CB00",
         red: "#EC272E",
+        blueTransparent:
+          "rgba(0, 146, 239, 0.15)",
+        yellowTransparent:
+          "rgba(255, 185, 51, 0.15)",
+        greenTransparent:
+          "rgba(53, 203, 0, 0.15)",
       },
       // fontSize: {
       //   "sm-3": "10px",

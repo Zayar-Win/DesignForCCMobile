@@ -1,11 +1,8 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { Image } from "react-native";
 import CertificateIcon from "../assets/Certificate.svg";
+import { useTailwind } from "tailwind-rn";
 
 const CourseProgressCard = ({
   title,
@@ -14,83 +11,55 @@ const CourseProgressCard = ({
   image,
   percentage,
 }) => {
+  const tailwind = useTailwind();
   return (
     <View>
       <View
-        style={{
-          marginHorizontal: 20,
-          marginBottom: 22,
-        }}
+        style={tailwind("mx-[20px] mb-[22px]")}
       >
         <View
-          style={{
-            flexDirection: "row",
-            padding: 20,
-            paddingBottom: 50,
-          }}
+          style={tailwind(
+            "flex-row p-[20px] pb-[50px]"
+          )}
         >
-          <View
-            style={{
-              flex: 0.6,
-            }}
-          >
+          <View style={tailwind("flex-[0.6]")}>
             <Text
-              style={{
-                fontSize: 22,
-                lineHeight: 27,
-                fontWeight: 600,
-                paddingBottom: 9,
-              }}
+              style={tailwind(
+                "text-[22px] leading-[27px] font-semibold pb-[9px]"
+              )}
             >
               {title}
             </Text>
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 500,
-                color: "#656565",
-              }}
+              style={tailwind(
+                "text-[14px] leading-[17px] font-medium text-black-gray"
+              )}
             >
               Completed Chapters : {chapterCount}
             </Text>
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 500,
-                color: "#656565",
-                paddingTop: 10,
-              }}
+              style={tailwind(
+                "text-[14px] leading-[17px] font-medium text-black-gray pt-[10px]"
+              )}
             >
               Completed Lessons : {lessonCount}
             </Text>
           </View>
-          <View
-            style={{
-              flex: 0.4,
-            }}
-          >
+          <View style={tailwind("flex-[0.4]")}>
             <Image
               source={image}
-              style={{
-                width: "100%",
-                height: 150,
-                resizeMode: "contain",
-              }}
+              style={[
+                tailwind("w-full h-[150px]"),
+                {
+                  resizeMode: "contain",
+                },
+              ]}
             />
             {percentage === 100 ? (
               <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 4,
-                  backgroundColor: "#35CB00",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  position: "absolute",
-                  right: -10,
-                }}
+                style={tailwind(
+                  "w-[40px] h-[40px] rounded-[4px] bg-green items-center justify-center absolute -right-[10px]"
+                )}
               >
                 <CertificateIcon
                   width={23}
@@ -101,85 +70,65 @@ const CourseProgressCard = ({
           </View>
         </View>
         <View
-          style={{
-            width: "100%",
-            backgroundColor:
+          style={tailwind(
+            `w-full ${
               percentage < 60
-                ? "rgba(0, 146, 239, 0.15)"
+                ? "bg-blueTransparent"
                 : percentage !== 100
-                ? "rgba(255, 185, 51, 0.15)"
-                : "rgba(53, 203, 0, 0.15)",
-            position: "absolute",
-            bottom: 0,
-            borderRadius: 20,
-            paddingHorizontal: 20,
-            paddingVertical: 16,
-          }}
+                ? "bg-yellowTransparent"
+                : "bg-greenTransparent"
+            } absolute bottom-0 rounded-[20px] px-[20px] py-[16px]`
+          )}
         >
           <Text
-            style={{
-              fontSize: 12,
-              lineHeight: 15,
-              fontWeight: 500,
-              color: "#232425",
-              paddingBottom: 8,
-            }}
+            style={tailwind(
+              "text-[12px] leading-[15px] font-medium text-black pb-[8px]"
+            )}
           >
             Progress
           </Text>
           <Text
-            style={{
-              fontSize: 20,
-              lineHeight: 24,
-              fontWeight: 700,
-              color:
+            style={tailwind(
+              `text-[20px] leading-[24px] font-bold ${
                 percentage < 60
-                  ? "#0092EF"
+                  ? "text-primary"
                   : percentage !== 100
-                  ? "#FFB933"
-                  : "#35CB00",
-            }}
+                  ? "text-yellow"
+                  : "text-green"
+              }`
+            )}
           >
             {percentage}% completed
           </Text>
           <View
-            style={{
-              height: 6,
-              width: "100%",
-              backgroundColor: "#FFFFFF",
-              borderRadius: 10,
-              marginTop: 16,
-            }}
+            style={tailwind(
+              "h-[6px] w-full bg-white rounded-[10px] mt-[16px]"
+            )}
           >
             <View
-              style={{
-                position: "absolute",
-                left: 0,
-                backgroundColor:
-                  percentage < 60
-                    ? "#0092EF"
-                    : percentage !== 100
-                    ? "#FFB933"
-                    : "#35CB00",
-
-                height: "100%",
-                width: `${percentage}%`,
-                borderRadius: 40,
-              }}
+              style={[
+                tailwind(
+                  `absolute left-0 ${
+                    percentage < 60
+                      ? "bg-primary"
+                      : percentage !== 100
+                      ? "bg-yellow"
+                      : "bg-green"
+                  } h-full rounded-[40px]`
+                ),
+                { width: `${percentage}%` },
+              ]}
             />
           </View>
         </View>
       </View>
       <View
-        style={{
-          borderBottomColor: "#EBEBEB",
-          borderBottomWidth: 1,
-        }}
+        style={tailwind(
+          "border-b-white-gray border-b-[1px]"
+        )}
       />
     </View>
   );
 };
 
 export default CourseProgressCard;
-
-const styles = StyleSheet.create({});

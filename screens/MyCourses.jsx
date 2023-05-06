@@ -1,6 +1,5 @@
 import {
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
@@ -12,6 +11,7 @@ import { Animated } from "react-native";
 import CertificateBlack from "../assets/CertificateBlack.svg";
 import Left from "../assets/Left.svg";
 import { useNavigation } from "@react-navigation/native";
+import { useTailwind } from "tailwind-rn";
 
 const myCourses = [
   {
@@ -38,6 +38,7 @@ const myCourses = [
 ];
 
 const MyCourses = () => {
+  const tailwind = useTailwind();
   const navigation = useNavigation();
   const [filter, setFilter] = useState("All");
   const tabAnimation = useRef(
@@ -55,35 +56,26 @@ const MyCourses = () => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <SearchBar
-        placeholder={"Search for your courses..."}
-      />
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
+      <View style={tailwind("px-[20px]")}>
+        <SearchBar
+          placeholder={
+            "Search for your courses..."
+          }
+        />
+      </View>
       <View
-        style={{
-          marginTop: 16,
-          backgroundColor: "#F5F5F5",
-          borderRadius: 24,
-          marginHorizontal: 20,
-          padding: 8,
-          paddingLeft: 35,
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          flex: 1,
-          gap: 3,
-        }}
+        style={tailwind(
+          "mt-[16px] bg-white-gray-soft rounded-[24px] mx-[20px] p-[8px] pl-[35px] flex-row flex-1 items-center justify-center"
+        )}
       >
         <Animated.View
           style={[
-            {
-              width: 125,
-              height: 34,
-              backgroundColor: "white",
-              position: "absolute",
-              left: 11,
-              borderRadius: 16,
-            },
+            tailwind(
+              "w-[125px] h-[34px] bg-white absolute left-[11px] rounded-[16px]"
+            ),
             {
               transform: [
                 {
@@ -101,66 +93,44 @@ const MyCourses = () => {
             },
           ]}
         ></Animated.View>
-        <View
-          style={{
-            flexGrow: 1,
-            paddingVertical: 7,
-            borderRadius: 16,
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#656565",
-          }}
+        <Pressable
+          onPress={(e) =>
+            changeFilter(e, "All", 0)
+          }
+          style={tailwind(
+            "grow py-[7px] rounded-[16px] items-center justify-center text-black-gray"
+          )}
         >
-          <Pressable
-            onPress={(e) =>
-              changeFilter(e, "All", 0)
-            }
-          >
+          <View>
             <Text>All</Text>
-          </Pressable>
-        </View>
-        <View
-          style={{
-            flexGrow: 1,
-            paddingVertical: 7,
-            borderRadius: 16,
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#656565",
-          }}
+          </View>
+        </Pressable>
+        <Pressable
+          onPress={(e) =>
+            changeFilter(e, "Ongoing", 2)
+          }
+          style={tailwind(
+            "grow py-[7px] rounded-[16px] items-center justify-center text-black-gray"
+          )}
         >
-          <Pressable
-            onPress={(e) =>
-              changeFilter(e, "Ongoing", 2)
-            }
-          >
+          <View>
             <Text>Ongoing</Text>
-          </Pressable>
-        </View>
-        <View
-          style={{
-            flexGrow: 1,
-            paddingVertical: 7,
-            borderRadius: 16,
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#656565",
-          }}
+          </View>
+        </Pressable>
+        <Pressable
+          onPress={(e) =>
+            changeFilter(e, "Completed", 3)
+          }
+          style={tailwind(
+            "grow py-[7px] rounded-[16px] items-center justify-center text-black-gray"
+          )}
         >
-          <Pressable
-            onPress={(e) =>
-              changeFilter(e, "Completed", 3)
-            }
-          >
+          <View>
             <Text>Completed</Text>
-          </Pressable>
-        </View>
+          </View>
+        </Pressable>
       </View>
-      <View
-        style={{
-          marginVertical: 16,
-        }}
-      >
+      <View style={tailwind("my-[16px]")}>
         {myCourses?.map((course, i) => (
           <CourseProgressCard
             key={i}
@@ -177,10 +147,3 @@ const MyCourses = () => {
 };
 
 export default MyCourses;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});
