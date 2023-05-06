@@ -31,7 +31,7 @@ module.exports = {
       //   lg: "18px",
       //   "lg-2": "20px",
       //   "lg-3": "24px",
-      // },
+      // }
     },
   },
   plugins: [],
