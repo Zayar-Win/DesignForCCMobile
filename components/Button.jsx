@@ -23,9 +23,12 @@ const Button = ({
     >
       <Pressable {...props}>
         <View
-          style={tailwind(
-            "flex-row items-center justify-center"
-          )}
+          style={[
+            tailwind(
+              "flex-row items-center justify-center"
+            ),
+            { gap: 11 },
+          ]}
         >
           {icon ? icon : null}
           <Text

@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import Github from "../assets/github.svg";
 import Facebook from "../assets/facebook.svg";
@@ -12,37 +8,41 @@ import { ScrollView } from "react-native";
 import Button from "../components/Button";
 import { TextInput } from "react-native";
 import ProfileInputField from "../components/ProfileInputField";
+import { useTailwind } from "tailwind-rn";
 
 const SocialProfiles = () => {
+  const tailwind = useTailwind();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingHorizontal: 20,
-          gap: 16,
-          marginTop: 32,
-        }}
+        style={[
+          tailwind(
+            "flex-row items-center px-[20px] mt-[32px]"
+          ),
+          {
+            gap: 16,
+          },
+        ]}
       >
         <Image
           source={require("../assets/Robot.png")}
-          style={{
-            width: 64,
-            height: 64,
-            resizeMode: "contain",
-          }}
+          style={[
+            tailwind("w-[64px] h-[64px]"),
+            {
+              resizeMode: "contain",
+            },
+          ]}
         />
         <Github />
         <Facebook />
         <LinkedIn />
       </View>
       <View
-        style={{
-          marginTop: 32,
-          flex: 1,
-          width: "100%",
-        }}
+        style={tailwind(
+          "mt-[32px] flex-1 w-full"
+        )}
       >
         <ProfileInputField
           value='github.com/MinNaing7'
@@ -58,11 +58,9 @@ const SocialProfiles = () => {
         />
       </View>
       <View
-        style={{
-          paddingHorizontal: 20,
-          width: "100%",
-          marginTop: 16,
-        }}
+        style={tailwind(
+          "px-[20px] w-full mt-[16px]"
+        )}
       >
         <Button text={"Save Social Profiles"} />
       </View>
@@ -71,10 +69,3 @@ const SocialProfiles = () => {
 };
 
 export default SocialProfiles;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});

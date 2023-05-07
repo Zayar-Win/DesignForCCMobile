@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import Logo from "../assets/Creative-Coder-W-01.svg";
 import { Gif } from "react-native-gif";
@@ -39,5 +35,3 @@ const Intro = () => {
 };
 
 export default Intro;
-
-const styles = StyleSheet.create({});

@@ -84,6 +84,31 @@
 			"left": -80
 		}
 	},
+	"-bottom-[28px]": {
+		"style": {
+			"bottom": -28
+		}
+	},
+	"-left-[8px]": {
+		"style": {
+			"left": -8
+		}
+	},
+	"-right-[8px]": {
+		"style": {
+			"right": -8
+		}
+	},
+	"-bottom-[16px]": {
+		"style": {
+			"bottom": -16
+		}
+	},
+	"right-[20px]": {
+		"style": {
+			"right": 20
+		}
+	},
 	"mx-[20px]": {
 		"style": {
 			"marginLeft": 20,
@@ -106,6 +131,12 @@
 		"style": {
 			"marginTop": 24,
 			"marginBottom": 24
+		}
+	},
+	"my-[32px]": {
+		"style": {
+			"marginTop": 32,
+			"marginBottom": 32
 		}
 	},
 	"mb-[22px]": {
@@ -268,6 +299,16 @@
 			"marginTop": 20
 		}
 	},
+	"mt-[32px]": {
+		"style": {
+			"marginTop": 32
+		}
+	},
+	"mb-[16px]": {
+		"style": {
+			"marginBottom": 16
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -363,6 +404,16 @@
 			"height": "93%"
 		}
 	},
+	"h-[90%]": {
+		"style": {
+			"height": "90%"
+		}
+	},
+	"h-[64px]": {
+		"style": {
+			"height": 64
+		}
+	},
 	"w-[122px]": {
 		"style": {
 			"width": 122
@@ -446,6 +497,16 @@
 	"w-[95%]": {
 		"style": {
 			"width": "95%"
+		}
+	},
+	"w-[90%]": {
+		"style": {
+			"width": "90%"
+		}
+	},
+	"w-[64px]": {
+		"style": {
+			"width": 64
 		}
 	},
 	"flex-1": {
@@ -598,6 +659,24 @@
 			"borderTopRightRadius": 6,
 			"borderBottomRightRadius": 6,
 			"borderBottomLeftRadius": 6
+		}
+	},
+	"rounded-[8px]": {
+		"style": {
+			"borderTopLeftRadius": 8,
+			"borderTopRightRadius": 8,
+			"borderBottomRightRadius": 8,
+			"borderBottomLeftRadius": 8
+		}
+	},
+	"rounded-tl-none": {
+		"style": {
+			"borderTopLeftRadius": 0
+		}
+	},
+	"rounded-tr-none": {
+		"style": {
+			"borderTopRightRadius": 0
 		}
 	},
 	"border-[1px]": {
@@ -852,6 +931,12 @@
 			"paddingRight": 10
 		}
 	},
+	"px-[71px]": {
+		"style": {
+			"paddingLeft": 71,
+			"paddingRight": 71
+		}
+	},
 	"pb-[12px]": {
 		"style": {
 			"paddingBottom": 12
@@ -950,6 +1035,16 @@
 	"pb-[30px]": {
 		"style": {
 			"paddingBottom": 30
+		}
+	},
+	"pr-[16px]": {
+		"style": {
+			"paddingRight": 16
+		}
+	},
+	"pr-[8px]": {
+		"style": {
+			"paddingRight": 8
 		}
 	},
 	"text-center": {
@@ -1167,6 +1262,18 @@
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 185 51 / var(--tw-text-opacity))"
+		}
+	},
+	"text-[#A8A8A8]": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(168 168 168 / var(--tw-text-opacity))"
+		}
+	},
+	"text-red": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(236 39 46 / var(--tw-text-opacity))"
 		}
 	}
 }

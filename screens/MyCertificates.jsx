@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import Certificate from "../components/Certificate";
 import { ScrollView } from "react-native";
@@ -228,10 +224,3 @@ const MyCertificates = () => {
 };
 
 export default MyCertificates;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});

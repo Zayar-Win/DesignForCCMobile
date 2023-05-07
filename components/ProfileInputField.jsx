@@ -1,12 +1,9 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native";
 import EyeOpen from "../assets/Eye Not-Protected Icon.svg";
 import EyeClose from "../assets/Eye Protected Icon.svg";
+import { useTailwind } from "tailwind-rn";
 
 const ProfileInputField = ({
   label,
@@ -16,53 +13,38 @@ const ProfileInputField = ({
   isPassword,
   ...props
 }) => {
+  const tailwind = useTailwind();
   const [isPasswordShow, setIsPasswordShow] =
     useState(false);
   return (
     <View
       style={[
-        {
-          padding: 20,
-          borderBottomWidth: 1,
-          borderBottomColor: "#EBEBEB",
-          flexDirection: "row",
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-        },
+        tailwind(
+          "p-[20px] border-b-[1px] border-white-gray flex-row flex-1 w-full items-center"
+        ),
         wrapperStyle,
       ]}
     >
       <Text
         style={[
-          {
-            fontSize: 14,
-            lineHeight: 17,
-            fontWeight: 600,
-            color: "#0092EF",
-            paddingRight: 16,
-          },
+          tailwind(
+            "text-[14px] font-semibold text-primary pr-[16px]"
+          ),
           labelStyle,
         ]}
       >
         {label} :{" "}
       </Text>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
+      <View style={tailwind("flex-1")}>
         <TextInput
           secureTextEntry={
             isPassword && !isPasswordShow
           }
           value={value}
           {...props}
-          style={{
-            fontSize: 16,
-            color: "#232425",
-            width: "100%",
-          }}
+          style={tailwind(
+            "text-[16px] text-black w-full"
+          )}
         />
         {isPassword ? (
           isPasswordShow ? (
@@ -72,10 +54,9 @@ const ProfileInputField = ({
               onPress={() =>
                 setIsPasswordShow(!isPasswordShow)
               }
-              style={{
-                position: "absolute",
-                right: 20,
-              }}
+              style={tailwind(
+                "absolute right-[20px]"
+              )}
             />
           ) : (
             <EyeClose
@@ -84,10 +65,9 @@ const ProfileInputField = ({
               onPress={() =>
                 setIsPasswordShow(!isPasswordShow)
               }
-              style={{
-                position: "absolute",
-                right: 20,
-              }}
+              style={tailwind(
+                "absolute right-[20px]"
+              )}
             />
           )
         ) : null}
@@ -97,5 +77,3 @@ const ProfileInputField = ({
 };
 
 export default ProfileInputField;
-
-const styles = StyleSheet.create({});

@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -105,19 +101,3 @@ const Blog = () => {
 };
 
 export default Blog;
-
-const styles = StyleSheet.create({
-  searchBarContainer: {
-    marginTop: 10,
-    justifyContent: "center",
-    paddingVertical: 15,
-    backgroundColor: "#F5F5F5",
-    borderRadius: 100,
-    marginHorizontal: 20,
-  },
-  searchInput: {
-    fontSize: 16,
-    marginLeft: 75,
-    marginRight: 10,
-  },
-});

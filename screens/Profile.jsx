@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React, { useRef, useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -460,7 +456,6 @@ const Profile = ({ navigation }) => {
               <Logout
                 width={18}
                 text={"Logout"}
-                style={tailwind("mr-[11px]")}
               />
             }
           />
@@ -471,10 +466,3 @@ const Profile = ({ navigation }) => {
 };
 
 export default Profile;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});

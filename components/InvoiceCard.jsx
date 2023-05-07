@@ -5,6 +5,8 @@ import {
 } from "react-native";
 import React from "react";
 import DownloadIcon from "../assets/Download Icon.svg";
+import { useTailwind } from "tailwind-rn";
+import Button from "./Button";
 
 const InvoiceCard = ({
   courseTitle,
@@ -12,139 +14,91 @@ const InvoiceCard = ({
   fee,
   leftAmount,
 }) => {
+  const tailwind = useTailwind();
+
   return (
     <View
-      style={{
-        width: "100%",
-        borderRadius: 10,
-        backgroundColor: "#F5F5F5",
-        overflow: "hidden",
-        marginBottom: 16,
-      }}
+      style={tailwind(
+        "w-full rounded-[10px] bg-white-gray-soft overflow-hidden mb-[16px]"
+      )}
     >
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 16,
-          paddingHorizontal: 20,
-
-          borderBottomWidth: 1,
-          borderBottomColor: "#EBEBEB",
-        }}
+        style={tailwind(
+          "flex-row items-center py-[16px] px-[20px] border-b-[1px] border-b-white-gray"
+        )}
       >
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#0092EF",
-            paddingRight: 8,
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-primary pr-[8px]"
+          )}
         >
           Course :{" "}
         </Text>
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#232425",
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-black"
+          )}
         >
           {courseTitle}
         </Text>
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 16,
-          paddingHorizontal: 20,
-
-          borderBottomWidth: 1,
-          borderBottomColor: "#EBEBEB",
-        }}
+        style={tailwind(
+          "flex-row items-center py-[16px] px-[20px] border-b-[1px] border-b-white-gray"
+        )}
       >
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#0092EF",
-            paddingRight: 8,
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-primary pr-[8px]"
+          )}
         >
           Access Date :{" "}
         </Text>
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#232425",
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-black"
+          )}
         >
           {access_date}
         </Text>
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 16,
-          paddingHorizontal: 20,
-
-          borderBottomWidth: 1,
-          borderBottomColor: "#EBEBEB",
-        }}
+        style={tailwind(
+          "flex-row items-center py-[16px] px-[20px] border-b-[1px] border-b-white-gray"
+        )}
       >
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#0092EF",
-            paddingRight: 8,
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-primary pr-[8px]"
+          )}
         >
           Fee :{" "}
         </Text>
         <View
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={tailwind(
+            "flex-1 flex-row items-center justify-between"
+          )}
         >
           <Text
-            style={{
-              fontSize: 14,
-              fontWeight: 600,
-              lineHeight: 17,
-              color: "#232425",
-            }}
+            style={tailwind(
+              "text-[14px] font-semibold leading-[17px] text-black"
+            )}
           >
             {fee} MMK
           </Text>
           <View
-            style={{
-              paddingVertical: 4,
-              paddingHorizontal: 8,
-              backgroundColor: leftAmount
-                ? "#FFB933"
-                : "#0092EF",
-              borderRadius: 8,
-            }}
+            style={tailwind(
+              `py-[4px] px-[8px] ${
+                leftAmount
+                  ? "bg-yellow"
+                  : "bg-primary"
+              } rounded-[8px]`
+            )}
           >
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontSize: 14,
-                color: "white",
-              }}
+              style={tailwind(
+                "text-[14px] leading-[17px] text-[14px] text-white"
+              )}
             >
               {leftAmount ? "Left" : "Paid"}
             </Text>
@@ -152,63 +106,38 @@ const InvoiceCard = ({
         </View>
       </View>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 16,
-          paddingHorizontal: 20,
-
-          borderBottomWidth: 1,
-          borderBottomColor: "#EBEBEB",
-        }}
+        style={tailwind(
+          "flex-row items-center py-[16px] px-[20px] border-b-[1px] border-b-white-gray"
+        )}
       >
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: "#0092EF",
-            paddingRight: 8,
-          }}
+          style={tailwind(
+            "text-[14px] font-semibold leading-[17px] text-primary pr-[8px]"
+          )}
         >
           Left Amount :{" "}
         </Text>
         <Text
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: 17,
-            color: leftAmount
-              ? "#EC272E"
-              : "#A8A8A8",
-          }}
+          style={tailwind(
+            `text-[14px] font-semibold leading-[17px] ${
+              leftAmount
+                ? "text-red"
+                : "text-[#A8A8A8]"
+            }`
+          )}
         >
           {leftAmount ? leftAmount : "0"} MMK
         </Text>
       </View>
-      <View
-        style={{
-          height: 56,
-          width: "100%",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#003E66",
-          gap: 8,
-        }}
-      >
-        <DownloadIcon width={16} height={16} />
-        <Text
-          style={{
-            fontWeight: 600,
-            fontSize: 14,
-            lineHeight: 17,
-            color: "white",
-          }}
-        >
-          Download
-        </Text>
-      </View>
+      <Button
+        text={"Download"}
+        buttonStyle={tailwind(
+          "rounded-tl-none rounded-tr-none"
+        )}
+        icon={
+          <DownloadIcon width={16} height={16} />
+        }
+      />
     </View>
   );
 };

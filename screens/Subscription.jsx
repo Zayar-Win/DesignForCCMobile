@@ -1,23 +1,21 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Button from "../components/Button";
 import ProfileInputField from "../components/ProfileInputField";
+import { useTailwind } from "tailwind-rn";
 
 const Subscription = () => {
+  const tailwind = useTailwind();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
       <View
-        style={{
-          marginTop: 32,
-          flex: 1,
-          width: "100%",
-        }}
+        style={tailwind(
+          "mt-[32px] flex-1 w-full"
+        )}
       >
         <ProfileInputField
           label='Email'
@@ -25,24 +23,14 @@ const Subscription = () => {
         />
       </View>
       <Text
-        style={{
-          paddingHorizontal: 71,
-          textAlign: "center",
-          fontSize: 14,
-          lineHeight: 17,
-          fontWeight: 500,
-          color: "#656565",
-          marginVertical: 32,
-        }}
+        style={tailwind(
+          "px-[71px] text-center text-[14px] leading-[17px] font-medium text-black-gray my-[32px]"
+        )}
       >
         We will send to your email when we upload
         a new post or youtube video.
       </Text>
-      <View
-        style={{
-          paddingHorizontal: 20,
-        }}
-      >
+      <View style={tailwind("px-[20px]")}>
         <Button text='Subscribe' />
       </View>
     </ScrollView>
@@ -50,10 +38,3 @@ const Subscription = () => {
 };
 
 export default Subscription;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});

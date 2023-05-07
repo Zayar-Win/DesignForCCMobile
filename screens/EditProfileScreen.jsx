@@ -1,8 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import { Image } from "react-native";
@@ -11,75 +7,46 @@ import Camera from "../assets/Camera Icon.svg";
 import Button from "../components/Button";
 import { TextInput } from "react-native";
 import ProfileInputField from "../components/ProfileInputField";
+import { useTailwind } from "tailwind-rn";
 
 const EditProfileScreen = () => {
+  const tailwind = useTailwind();
+
   return (
     <ScrollView style={styles.container}>
       <View
-        style={{
-          alignItems: "center",
-          marginTop: 32,
-        }}
+        style={tailwind("items-center mt-[32px]")}
       >
         <View
-          style={{
-            width: 136,
-            height: 136,
-            borderRadius: 200,
-            backgroundColor: "#F5F5F5",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          style={tailwind(
+            "w-[136px] h-[136px] rounded-full bg-white-gray-soft items-center justify-center"
+          )}
         >
           <Image
             source={require("../assets/teacher-5.png")}
-            style={{
-              width: "90%",
-              height: "90%",
-              borderRadius: 200,
-            }}
+            style={tailwind(
+              "w-[90%] h-[90%] rounded-full"
+            )}
           />
           <View
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 28,
-              backgroundColor: "#FFFFFF",
-              borderWidth: 1,
-              borderColor: "#EBEBEB",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "absolute",
-              bottom: -28,
-              left: -8,
-            }}
+            style={tailwind(
+              "w-[56px] h-[56px] rounded-full bg-white border-[1px] border-white-gray items-center justify-center absolute -bottom-[16px] -left-[8px]"
+            )}
           >
             <Cross width={25} height={25} />
           </View>
           <View
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 28,
-              backgroundColor: "#FFFFFF",
-              borderWidth: 1,
-              borderColor: "#EBEBEB",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "absolute",
-              bottom: -28,
-              right: -8,
-            }}
+            style={tailwind(
+              "w-[56px] h-[56px] rounded-full bg-white border-[1px] border-white-gray items-center justify-center absolute -bottom-[16px] -right-[8px]"
+            )}
           >
             <Camera width={24} hegiht={22} />
           </View>
         </View>
         <View
-          style={{
-            marginTop: 32,
-            flex: 1,
-            width: "100%",
-          }}
+          style={tailwind(
+            "mt-[32px] flex-1 w-full"
+          )}
         >
           <ProfileInputField
             label='Name'
@@ -109,11 +76,9 @@ const EditProfileScreen = () => {
           />
         </View>
         <View
-          style={{
-            paddingHorizontal: 20,
-            width: "100%",
-            marginTop: 16,
-          }}
+          style={tailwind(
+            "px-[20px] w-full my-[16px]"
+          )}
         >
           <Button text={"Save Profile"} />
         </View>
@@ -123,10 +88,3 @@ const EditProfileScreen = () => {
 };
 
 export default EditProfileScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-});
