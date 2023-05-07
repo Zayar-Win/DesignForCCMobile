@@ -15,6 +15,7 @@ import JS from "../assets/JS Logo.svg";
 import GITHUB from "../assets/GitHub Logo.svg";
 import GIT from "../assets/Git Logo.svg";
 import Button from "../components/Button";
+import { useTailwind } from "tailwind-rn";
 
 const languagesLogos = [
   {
@@ -65,13 +66,13 @@ const certificates = [
 ];
 
 const MyCertificates = () => {
+  const tailwind = useTailwind();
+
   return (
-    <ScrollView style={styles.container}>
-      <View
-        style={{
-          marginTop: 31,
-        }}
-      >
+    <ScrollView
+      style={tailwind("flex-1 bg-white")}
+    >
+      <View style={tailwind("mt-[31px]")}>
         <FlatList
           data={certificates}
           horizontal
@@ -100,31 +101,25 @@ const MyCertificates = () => {
         />
       </View>
       <View
-        style={{
-          marginHorizontal: 20,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 8,
-          marginTop: 30,
-        }}
+        style={[
+          tailwind(
+            "mx-[20px] flex-row items-center justify-center mt-[30px]"
+          ),
+          {
+            gap: 8,
+          },
+        ]}
       >
         <Pressable>
           <View
-            style={{
-              paddingHorizontal: 24,
-              paddingVertical: 12,
-              backgroundColor: "#F5F5F5",
-              borderRadius: 100,
-            }}
+            style={tailwind(
+              "px-[24px] py-[12px] bg-white-gray-soft rounded-[100px]"
+            )}
           >
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 500,
-                color: "#656565",
-              }}
+              style={tailwind(
+                "text-[14px] leading-[17px] font-medium text-black-gray"
+              )}
             >
               Prev
             </Text>
@@ -132,23 +127,15 @@ const MyCertificates = () => {
         </Pressable>
         <Pressable>
           <View
-            style={{
-              paddingHorizontal: 24,
-              paddingVertical: 12,
-              backgroundColor: "#F5F5F5",
-              borderRadius: 100,
-              flexDirection: "row",
-              gap: 10,
-            }}
+            style={tailwind(
+              "px-[24px] flex-row items-center  py-[12px] bg-white-gray-soft rounded-[100px]"
+            )}
           >
             <Download width={16} height={16} />
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 500,
-                color: "#0092EF",
-              }}
+              style={tailwind(
+                "text-[14px] pl-[13px] leading-[17px] font-medium text-primary"
+              )}
             >
               Download
             </Text>
@@ -156,33 +143,21 @@ const MyCertificates = () => {
         </Pressable>
         <Pressable>
           <View
-            style={{
-              paddingHorizontal: 24,
-              paddingVertical: 12,
-              backgroundColor: "#F5F5F5",
-              borderRadius: 100,
-              flexDirection: "row",
-              gap: 10,
-            }}
+            style={tailwind(
+              "px-[24px] py-[12px] bg-white-gray-soft rounded-[100px]"
+            )}
           >
             <Text
-              style={{
-                fontSize: 14,
-                lineHeight: 17,
-                fontWeight: 500,
-                color: "#656565",
-              }}
+              style={tailwind(
+                "text-[14px] leading-[17px] font-medium text-black-gray"
+              )}
             >
               Next
             </Text>
           </View>
         </Pressable>
       </View>
-      <View
-        style={{
-          marginVertical: 24,
-        }}
-      >
+      <View style={tailwind("my-[24px]")}>
         <FlatList
           data={languagesLogos}
           horizontal
@@ -192,21 +167,18 @@ const MyCertificates = () => {
           renderItem={({ item, index }) => {
             return (
               <View
-                style={{
-                  width: 56,
-                  height: 56,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: "#F5F5F5",
-                  borderRadius: 100,
-                  marginLeft:
-                    index === 0 ? 20 : 8,
-                  marginRight:
+                style={tailwind(
+                  `w-[56px] h-[56px] items-center justify-center bg-white-gray-soft rounded-full ${
+                    index === 0
+                      ? "ml-[20px]"
+                      : "ml-[8px]"
+                  } ${
                     index ===
                     languagesLogos.length - 1
-                      ? 20
-                      : 0,
-                }}
+                      ? "mr-[20px]"
+                      : ""
+                  }`
+                )}
               >
                 <item.Logo />
               </View>
@@ -215,56 +187,39 @@ const MyCertificates = () => {
         />
       </View>
       <Text
-        style={{
-          textAlign: "center",
-          fontSize: 12,
-          lineHeight: 15,
-          fontWeight: 500,
-          color: "#656565",
-        }}
+        style={tailwind(
+          "text-center text-[12px] leading-[15px] font-medium text-black-gray"
+        )}
       >
         Please Contact Us Get Certificate
       </Text>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        style={tailwind(
+          "flex-row items-center justify-center mt-[6px]"
+        )}
       >
         <View
-          style={{
-            width: 50,
-            height: 0.5,
-            backgroundColor: "#656565",
-          }}
+          style={tailwind(
+            "w-[50px] h-[0.5px] bg-black-gray"
+          )}
         />
         <Text
-          style={{
-            fontSize: 12,
-            lineHeight: 15,
-            fontWeight: 500,
-            color: "#656565",
-            paddingHorizontal: 7,
-            paddingTop: 6,
-          }}
+          style={tailwind(
+            "text-[12px] leading-[15px] font-medium text-black-gray px-[7px]"
+          )}
         >
           By Showing Your Project
         </Text>
         <View
-          style={{
-            width: 50,
-            height: 0.5,
-            backgroundColor: "#656565",
-          }}
+          style={tailwind(
+            "w-[50px] h-[0.5px] bg-black-gray"
+          )}
         />
       </View>
       <View
-        style={{
-          marginHorizontal: 20,
-          marginBottom: 40,
-          marginTop: 28,
-        }}
+        style={tailwind(
+          "mx-[20px] mb-[40px] mt-[28px]"
+        )}
       >
         <Button text={"Apply Certificate"} />
       </View>
